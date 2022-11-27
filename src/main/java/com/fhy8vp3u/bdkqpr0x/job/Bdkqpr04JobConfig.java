@@ -71,7 +71,7 @@ public class Bdkqpr04JobConfig {
     .listener(jobListener)
     .incrementer(new RunIdIncrementer())
     .start(initStepB04(stepListener, null, null))    
-    //.next(ec4mrjp5ToCqa7wtjgStepB04(stepListener, null)) // XXX: 파일 처리 없이 DB -> DB
+    //.next(ec4mrjp5ToCqa7wtjgStepB04(stepListener, null)) // XXX: 파일 처리 없이 DB -> DB 처리, 현재 상태는 File -> DB -> File 
     .next(ec4mrjp5ToFileStepB04(stepListener, null))
     .next(fileToCqa7wtjgStepB04(stepListener, null))
     .next(deleteEc4mrjp5StepB04(stepListener))
