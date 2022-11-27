@@ -1,5 +1,5 @@
 # bdkqpr0x
-스프링부트 배치 템플릿
+스프링부트 배치 템플릿 mybatis/lombok/jsch
 
 1. job b01: us-500.csv 배치 / MySQL -> Oracle, MySQL -> File -> Oracle
 2. job b02: us-500.csv 배치 / Oracle -> MySQL, Oracle -> File -> MySQL
