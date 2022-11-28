@@ -1,3 +1,0 @@
-signed commit test
-test
-test
