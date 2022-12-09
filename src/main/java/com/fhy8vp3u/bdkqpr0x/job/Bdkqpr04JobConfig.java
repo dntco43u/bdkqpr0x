@@ -50,14 +50,14 @@ public class Bdkqpr04JobConfig {
   @Qualifier("sqlSessionFactoryCqa7wtjg")
   public SqlSessionFactory sqlSessionFactoryCqa7wtjg;
   @Autowired
-  @Qualifier("sqlSessionFactoryEc4mrjp5")
-  public SqlSessionFactory sqlSessionFactoryEc4mrjp5;
+  @Qualifier("sqlSessionFactoryGvp6nx1a")
+  public SqlSessionFactory sqlSessionFactoryGvp6nx1a;
   @Autowired
   @Qualifier("sqlSessionTemplateCqa7wtjg")
   protected SqlSession sqlSessionCqa7wtjg;
   @Autowired
-  @Qualifier("sqlSessionTemplateEc4mrjp5")
-  protected SqlSession sqlSessionEc4mrjp5;  
+  @Qualifier("sqlSessionTemplateGvp6nx1a")
+  protected SqlSession sqlSessionGvp6nx1a;  
   private String csvFile;
   private String csvFileEncoding;
   private String[] csvFileHeader;
@@ -71,10 +71,10 @@ public class Bdkqpr04JobConfig {
     .listener(jobListener)
     .incrementer(new RunIdIncrementer())
     .start(initStepB04(stepListener, null, null))    
-    //.next(ec4mrjp5ToCqa7wtjgStepB04(stepListener, null)) // XXX: 파일 처리 없이 DB -> DB 처리, 현재 상태는 File -> DB -> File 
-    .next(ec4mrjp5ToFileStepB04(stepListener, null))
+    //.next(gvp6nx1aToCqa7wtjgStepB04(stepListener, null)) // XXX: 파일 처리 없이 DB -> DB 처리, 현재 상태는 File -> DB -> File 
+    .next(gvp6nx1aToFileStepB04(stepListener, null))
     .next(fileToCqa7wtjgStepB04(stepListener, null))
-    .next(deleteEc4mrjp5StepB04(stepListener))
+    .next(deleteGvp6nx1aStepB04(stepListener))
     .next(closeStepB04(stepListener))
     .build();
   }
@@ -97,12 +97,12 @@ public class Bdkqpr04JobConfig {
 
   @Bean
   @JobScope
-  public Step deleteEc4mrjp5StepB04(Bdkqpr0xStepListener stepListener) throws Exception {
+  public Step deleteGvp6nx1aStepB04(Bdkqpr0xStepListener stepListener) throws Exception {
     return stepBuilderFactory
-    .get("deleteEc4mrjp5StepB04")
+    .get("deleteGvp6nx1aStepB04")
     .listener(stepListener)
     .tasklet((contribution, chunkContext) -> {
-      this.sqlSessionEc4mrjp5.delete("com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr04MapperEc4mrjp5.delete001");
+      this.sqlSessionGvp6nx1a.delete("com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr04MapperGvp6nx1a.delete001");
       return RepeatStatus.FINISHED;
     })
     .build();
@@ -110,13 +110,13 @@ public class Bdkqpr04JobConfig {
   
   @Bean
   @JobScope
-  public Step ec4mrjp5ToCqa7wtjgStepB04(Bdkqpr0xStepListener stepListener,
+  public Step gvp6nx1aToCqa7wtjgStepB04(Bdkqpr0xStepListener stepListener,
   @Value("#{jobParameters[chunkSize]}") Integer chunkSize) throws Exception {
     return stepBuilderFactory
-    .get("ec4mrjp5ToCqa7wtjgStepB04")
+    .get("gvp6nx1aToCqa7wtjgStepB04")
     .listener(stepListener)
     .<SystemEventsDTO, SystemEventsDTO>chunk(chunkSize)
-    .reader(ec4mrjp5Select001ReaderB04(null))
+    .reader(gvp6nx1aSelect001ReaderB04(null))
     .processor(new ItemProcessorB04())
     .writer(cqa7wtjgInsert001WriterB04())
     .build();
@@ -124,13 +124,13 @@ public class Bdkqpr04JobConfig {
 
   @Bean
   @JobScope
-  public Step ec4mrjp5ToFileStepB04(Bdkqpr0xStepListener stepListener,
+  public Step gvp6nx1aToFileStepB04(Bdkqpr0xStepListener stepListener,
   @Value("#{jobParameters[chunkSize]}") Integer chunkSize) throws Exception {
     return stepBuilderFactory
-    .get("ec4mrjp5ToFileStepB04")
+    .get("gvp6nx1aToFileStepB04")
     .listener(stepListener)
     .<SystemEventsDTO, SystemEventsDTO>chunk(chunkSize)
-    .reader(ec4mrjp5Select001ReaderB04(null))
+    .reader(gvp6nx1aSelect001ReaderB04(null))
     .processor(new ItemProcessorB04())
     .writer(fileWriterB04())
     .build();
@@ -183,11 +183,11 @@ public class Bdkqpr04JobConfig {
 
   @Bean
   @StepScope
-  public MyBatisPagingItemReader<SystemEventsDTO> ec4mrjp5Select001ReaderB04(@Value("#{jobParameters[chunkSize]}") Integer chunkSize) throws Exception {
+  public MyBatisPagingItemReader<SystemEventsDTO> gvp6nx1aSelect001ReaderB04(@Value("#{jobParameters[chunkSize]}") Integer chunkSize) throws Exception {
     return new MyBatisPagingItemReaderBuilder<SystemEventsDTO>()
-    .sqlSessionFactory(sqlSessionFactoryEc4mrjp5)
+    .sqlSessionFactory(sqlSessionFactoryGvp6nx1a)
     .pageSize(chunkSize)
-    .queryId("com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr04MapperEc4mrjp5.select001")
+    .queryId("com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr04MapperGvp6nx1a.select001")
     .build();
   }
   

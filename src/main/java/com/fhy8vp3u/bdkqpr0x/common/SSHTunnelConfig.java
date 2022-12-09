@@ -33,6 +33,7 @@ public class SSHTunnelConfig {
     try {
       jsch.addIdentity(pemKey);
       session = jsch.getSession(user, remoteServer, remotePort);
+      // XXX: 추후 host key 지정 위치 찾아서 변경한 후 삭제할 것
       session.setConfig("StrictHostKeyChecking", "no");
       session.connect();
       forwardedPort = session.setPortForwardingL(0, tunnelRemoteServer, tunnelRemotePort);
@@ -41,6 +42,7 @@ public class SSHTunnelConfig {
     } catch (Exception e) {
       log.error("", e);
       this.destory();
+      System.exit(-1);
     }
     Map<String, String> paramMap = new HashMap<String, String>();
     paramMap.put("forwardedPort", String.valueOf(forwardedPort));

@@ -50,14 +50,14 @@ public class Bdkqpr02JobConfig {
   @Qualifier("sqlSessionFactoryCqa7wtjg")
   public SqlSessionFactory sqlSessionFactoryCqa7wtjg;
   @Autowired
-  @Qualifier("sqlSessionFactoryEc4mrjp5")
-  public SqlSessionFactory sqlSessionFactoryEc4mrjp5;
+  @Qualifier("sqlSessionFactoryGvp6nx1a")
+  public SqlSessionFactory sqlSessionFactoryGvp6nx1a;
   @Autowired
   @Qualifier("sqlSessionTemplateCqa7wtjg")
   protected SqlSession sqlSessionCqa7wtjg;
   @Autowired
-  @Qualifier("sqlSessionTemplateEc4mrjp5")
-  protected SqlSession sqlSessionEc4mrjp5;
+  @Qualifier("sqlSessionTemplateGvp6nx1a")
+  protected SqlSession sqlSessionGvp6nx1a;
   private String csvFile;
   private String csvFileEncoding;
   private String[] csvFileHeader;
@@ -71,11 +71,11 @@ public class Bdkqpr02JobConfig {
     .listener(jobListener)
     .incrementer(new RunIdIncrementer())
     .start(initStepB02(stepListener, null, null))    
-    .next(deleteEc4mrjp5StepB02(stepListener))
-    .next(cqa7wtjgToEc4mrjp5StepB02(stepListener, null))
-    .next(deleteEc4mrjp5StepB02(stepListener))
+    .next(deleteGvp6nx1aStepB02(stepListener))
+    .next(cqa7wtjgToGvp6nx1aStepB02(stepListener, null))
+    .next(deleteGvp6nx1aStepB02(stepListener))
     .next(cqa7wtjgToFileStepB02(stepListener, null))
-    .next(fileToEc4mrjp5StepB02(stepListener, null))
+    .next(fileToGvp6nx1aStepB02(stepListener, null))
     .next(closeStepB02(stepListener))
     .build();
   }
@@ -98,12 +98,12 @@ public class Bdkqpr02JobConfig {
   
   @Bean
   @JobScope
-  public Step deleteEc4mrjp5StepB02(Bdkqpr0xStepListener stepListener) throws Exception {
+  public Step deleteGvp6nx1aStepB02(Bdkqpr0xStepListener stepListener) throws Exception {
     return stepBuilderFactory
-    .get("deleteEc4mrjp5StepB02")
+    .get("deleteGvp6nx1aStepB02")
     .listener(stepListener)
     .tasklet((contribution, chunkContext) -> {
-      this.sqlSessionEc4mrjp5.delete("com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr01MapperEc4mrjp5.delete001");
+      this.sqlSessionGvp6nx1a.delete("com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr01MapperGvp6nx1a.delete001");
       return RepeatStatus.FINISHED;
     })
     .build();
@@ -111,15 +111,15 @@ public class Bdkqpr02JobConfig {
   
   @Bean
   @JobScope
-  public Step cqa7wtjgToEc4mrjp5StepB02(Bdkqpr0xStepListener stepListener,
+  public Step cqa7wtjgToGvp6nx1aStepB02(Bdkqpr0xStepListener stepListener,
   @Value("#{jobParameters[chunkSize]}") Integer chunkSize) throws Exception {
     return stepBuilderFactory
-    .get("cqa7wtjgToEc4mrjp5StepB02")
+    .get("cqa7wtjgToGvp6nx1aStepB02")
     .listener(stepListener)
     .<Bdkqpr01DTO, Bdkqpr01DTO>chunk(chunkSize)
     .reader(cqa7wtjgSelect001ReaderB02(null))
     .processor(new ItemProcessorB02())
-    .writer(ec4mrjp5Insert001WriterB02())
+    .writer(gvp6nx1aInsert001WriterB02())
     .build();
   }
   
@@ -139,15 +139,15 @@ public class Bdkqpr02JobConfig {
   
   @Bean
   @JobScope
-  public Step fileToEc4mrjp5StepB02(Bdkqpr0xStepListener stepListener,
+  public Step fileToGvp6nx1aStepB02(Bdkqpr0xStepListener stepListener,
   @Value("#{jobParameters[chunkSize]}") Integer chunkSize) throws Exception {
     return stepBuilderFactory
-    .get("fileToEc4mrjp5StepB02")
+    .get("fileToGvp6nx1aStepB02")
     .listener(stepListener)
     .<Bdkqpr01DTO, Bdkqpr01DTO>chunk(chunkSize)
     .reader(fileReaderB02())
     .processor(new ItemProcessorB02())
-    .writer(ec4mrjp5Insert001WriterB02())
+    .writer(gvp6nx1aInsert001WriterB02())
     .build();
   }
   
@@ -158,7 +158,7 @@ public class Bdkqpr02JobConfig {
     .get("closeStepB02")
     .listener(stepListener)
     .tasklet((contribution, chunkContext) -> {
-      Integer count = this.sqlSessionEc4mrjp5.selectOne("com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr01MapperEc4mrjp5.select003");
+      Integer count = this.sqlSessionGvp6nx1a.selectOne("com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr01MapperGvp6nx1a.select003");
       log.info("count={}", count);
       return RepeatStatus.FINISHED;
     })
@@ -193,10 +193,10 @@ public class Bdkqpr02JobConfig {
   
   @Bean
   @StepScope
-  public MyBatisBatchItemWriter<Bdkqpr01DTO> ec4mrjp5Insert001WriterB02() {
+  public MyBatisBatchItemWriter<Bdkqpr01DTO> gvp6nx1aInsert001WriterB02() {
     return new MyBatisBatchItemWriterBuilder<Bdkqpr01DTO>()
-    .sqlSessionFactory(sqlSessionFactoryEc4mrjp5)
-    .statementId("com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr01MapperEc4mrjp5.insert001")
+    .sqlSessionFactory(sqlSessionFactoryGvp6nx1a)
+    .statementId("com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr01MapperGvp6nx1a.insert001")
     .build();
   }
   

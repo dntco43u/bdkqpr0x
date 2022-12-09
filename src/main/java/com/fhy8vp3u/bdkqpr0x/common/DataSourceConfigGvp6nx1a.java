@@ -27,17 +27,17 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Configuration
 @RequiredArgsConstructor
-@ConfigurationProperties(prefix = "spring.datasource-ec4mrjp5")
+@ConfigurationProperties(prefix = "spring.datasource-gvp6nx1a")
 @Setter
-public class DataSourceConfigEc4mrjp5 {
+public class DataSourceConfigGvp6nx1a {
   private final SSHTunnelConfig initializer; 
   private String driverClassName;
   private String jdbcUrl;
   private String username;
   private String password;
 
-  @Bean(name = "dataSourceEc4mrjp5")
-  public DataSource dataSourceEc4mrjp5() {
+  @Bean(name = "dataSourceGvp6nx1a")
+  public DataSource dataSourceGvp6nx1a() {
     log.info("driverClassName={}, jdbcUrl={}, username={}, password={}", driverClassName, jdbcUrl, username, password);
     Map<String, String> paramMap = null;
     try {
@@ -59,27 +59,27 @@ public class DataSourceConfigEc4mrjp5 {
     .build();
   }  
 
-  @Bean(name = "sqlSessionFactoryEc4mrjp5")
-  public SqlSessionFactory sqlSessionFactory(@Qualifier("dataSourceEc4mrjp5") DataSource dataSourceEc4mrjp5,
+  @Bean(name = "sqlSessionFactoryGvp6nx1a")
+  public SqlSessionFactory sqlSessionFactory(@Qualifier("dataSourceGvp6nx1a") DataSource dataSourceGvp6nx1a,
   ApplicationContext applicationContext) throws Exception {
     SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-    sqlSessionFactoryBean.setDataSource(dataSourceEc4mrjp5);
-    sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("sqlmap/**/*Ec4mrjp5Map.xml"));
+    sqlSessionFactoryBean.setDataSource(dataSourceGvp6nx1a);
+    sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("sqlmap/**/*Gvp6nx1aMap.xml"));
     sqlSessionFactoryBean.setTypeAliasesPackage("**.domain");
     sqlSessionFactoryBean
     .setConfigLocation(new PathMatchingResourcePatternResolver().getResource("classpath:mybatis-config.xml"));
     return sqlSessionFactoryBean.getObject();
   }
 
-  @Bean(name = "sqlSessionTemplateEc4mrjp5")
+  @Bean(name = "sqlSessionTemplateGvp6nx1a")
   public SqlSessionTemplate sqlSessionTemplate(
-  @Qualifier("sqlSessionFactoryEc4mrjp5") SqlSessionFactory sqlSessionFactoryEc4mrjp5) {
-    return new SqlSessionTemplate(sqlSessionFactoryEc4mrjp5, ExecutorType.BATCH);
+  @Qualifier("sqlSessionFactoryGvp6nx1a") SqlSessionFactory sqlSessionFactoryGvp6nx1a) {
+    return new SqlSessionTemplate(sqlSessionFactoryGvp6nx1a, ExecutorType.BATCH);
   }
 
-  @Bean(name = "transactionManagerEc4mrjp5")
+  @Bean(name = "transactionManagerGvp6nx1a")
   public PlatformTransactionManager transactionManager(
-  @Qualifier("dataSourceEc4mrjp5") DataSource dataSourceEc4mrjp5) {
-    return new DataSourceTransactionManager(dataSourceEc4mrjp5);
+  @Qualifier("dataSourceGvp6nx1a") DataSource dataSourceGvp6nx1a) {
+    return new DataSourceTransactionManager(dataSourceGvp6nx1a);
   }
 }

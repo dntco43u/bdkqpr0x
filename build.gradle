@@ -27,7 +27,8 @@ dependencies {
   implementation 'com.oracle.database.security:osdt_core'
   implementation 'com.oracle.database.security:osdt_cert'  
   implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
-  implementation 'com.jcraft:jsch:0.1.55'
+  // implementation 'com.jcraft:jsch:0.1.55'
+  implementation 'com.github.mwiede:jsch:0.2.4'
   implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
 }
 
