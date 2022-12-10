@@ -52,7 +52,7 @@ services:
   auzj6fml:
     image: openjdk:17-jdk
     container_name: auzj6fml
-    user: 0:0
+    user: 1000:1000
     networks:
       gvp6nx1a:
         ipv4_address: 172.18.0.102
