@@ -1,5 +1,6 @@
 package com.fhy8vp3u.bdkqpr0x.common;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.sql.DataSource;
@@ -39,7 +40,7 @@ public class DataSourceConfigGvp6nx1a {
   @Bean(name = "dataSourceGvp6nx1a")
   public DataSource dataSourceGvp6nx1a() {
     log.info("driverClassName={}, jdbcUrl={}, username={}, password={}", driverClassName, jdbcUrl, username, password);
-    Map<String, String> paramMap = null;
+    Map<String, String> paramMap = new HashMap<>();
     try {
       paramMap = initializer.init();
     } catch (Exception e) {

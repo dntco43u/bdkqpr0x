@@ -44,7 +44,7 @@ public class SSHTunnelConfig {
       this.destory();
       System.exit(-1);
     }
-    Map<String, String> paramMap = new HashMap<String, String>();
+    Map<String, String> paramMap = new HashMap<>();
     paramMap.put("forwardedPort", String.valueOf(forwardedPort));
     paramMap.put("tunnelRemotePort", String.valueOf(tunnelRemotePort));
     return paramMap;

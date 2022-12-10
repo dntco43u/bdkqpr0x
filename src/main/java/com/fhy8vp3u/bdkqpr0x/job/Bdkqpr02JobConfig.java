@@ -65,7 +65,7 @@ public class Bdkqpr02JobConfig {
   private String user = "bdkqpr0x";
 
   @Bean
-  public Job b02(Bdkqpr0xJobListener jobListener, Bdkqpr0xStepListener stepListener) throws Exception {
+  public Job b02(Bdkqpr0xJobListener jobListener, Bdkqpr0xStepListener stepListener) {
     return jobBuilderFactory
     .get("b02")
     .listener(jobListener)
@@ -83,7 +83,7 @@ public class Bdkqpr02JobConfig {
   @Bean
   @JobScope
   public Step initStepB02(Bdkqpr0xStepListener stepListener, @Value("#{jobParameters[requestDate]}") String requestDate,
-  @Value("#{jobParameters[chunkSize]}") Integer chunkSize) throws Exception {
+  @Value("#{jobParameters[chunkSize]}") Integer chunkSize) {
     return stepBuilderFactory
     .get("initStepB02")
     .listener(stepListener)
@@ -98,7 +98,7 @@ public class Bdkqpr02JobConfig {
   
   @Bean
   @JobScope
-  public Step deleteGvp6nx1aStepB02(Bdkqpr0xStepListener stepListener) throws Exception {
+  public Step deleteGvp6nx1aStepB02(Bdkqpr0xStepListener stepListener) {
     return stepBuilderFactory
     .get("deleteGvp6nx1aStepB02")
     .listener(stepListener)
@@ -112,7 +112,7 @@ public class Bdkqpr02JobConfig {
   @Bean
   @JobScope
   public Step cqa7wtjgToGvp6nx1aStepB02(Bdkqpr0xStepListener stepListener,
-  @Value("#{jobParameters[chunkSize]}") Integer chunkSize) throws Exception {
+  @Value("#{jobParameters[chunkSize]}") Integer chunkSize) {
     return stepBuilderFactory
     .get("cqa7wtjgToGvp6nx1aStepB02")
     .listener(stepListener)
@@ -126,7 +126,7 @@ public class Bdkqpr02JobConfig {
   @Bean
   @JobScope
   public Step cqa7wtjgToFileStepB02(Bdkqpr0xStepListener stepListener,
-  @Value("#{jobParameters[chunkSize]}") Integer chunkSize) throws Exception {
+  @Value("#{jobParameters[chunkSize]}") Integer chunkSize) {
     return stepBuilderFactory
     .get("cqa7wtjgToFileStepB02")
     .listener(stepListener)
@@ -140,7 +140,7 @@ public class Bdkqpr02JobConfig {
   @Bean
   @JobScope
   public Step fileToGvp6nx1aStepB02(Bdkqpr0xStepListener stepListener,
-  @Value("#{jobParameters[chunkSize]}") Integer chunkSize) throws Exception {
+  @Value("#{jobParameters[chunkSize]}") Integer chunkSize) {
     return stepBuilderFactory
     .get("fileToGvp6nx1aStepB02")
     .listener(stepListener)
@@ -153,7 +153,7 @@ public class Bdkqpr02JobConfig {
   
   @Bean
   @JobScope
-  public Step closeStepB02(Bdkqpr0xStepListener stepListener) throws Exception {
+  public Step closeStepB02(Bdkqpr0xStepListener stepListener) {
     return stepBuilderFactory
     .get("closeStepB02")
     .listener(stepListener)
@@ -183,7 +183,7 @@ public class Bdkqpr02JobConfig {
   @Bean
   @StepScope
   public MyBatisPagingItemReader<Bdkqpr01DTO> cqa7wtjgSelect001ReaderB02(
-  @Value("#{jobParameters[chunkSize]}") Integer chunkSize) throws Exception {
+  @Value("#{jobParameters[chunkSize]}") Integer chunkSize) {
     return new MyBatisPagingItemReaderBuilder<Bdkqpr01DTO>()
     .sqlSessionFactory(sqlSessionFactoryCqa7wtjg)
     .pageSize(chunkSize)
@@ -225,16 +225,12 @@ public class Bdkqpr02JobConfig {
     .encoding(csvFileEncoding)
     .resource(new FileSystemResource(csvFile))
     .append(false)
-    .lineAggregator(new DelimitedLineAggregator<Bdkqpr01DTO>() {
-      {
+    .lineAggregator(new DelimitedLineAggregator<Bdkqpr01DTO>() {{
         setDelimiter(csvFileDelimeter);
-        setFieldExtractor(new BeanWrapperFieldExtractor<Bdkqpr01DTO>() {
-          {
+        setFieldExtractor(new BeanWrapperFieldExtractor<Bdkqpr01DTO>() {{
             setNames(csvFileHeader);
-          }
-        });
-      }
-    })  
+          }});
+      }})  
     .build();
   }
 }
