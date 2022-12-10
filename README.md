@@ -76,7 +76,7 @@ networks:
 > Note: Configure to store oracle wallet and private key for ssh tunneling in `config` directory. And keep the in and out files in the `data` directory.
 
 ## Jenkins
-Shell script for pre build.
+Shell script for pre build. Runs in a jenkins docker container.
 ```sh
 /data/jenkins/data/sh/pre_build.sh example
 #!/bin/bash
@@ -94,7 +94,7 @@ fi
 /usr/bin/curl --data-urlencode text="$log" https://api.telegram.org/bot**********************************************/sendMessage?chat_id=**********
 ```
 
-Shell script for post build.
+Shell script for post build. Runs in the target host to be deployed.
 ```sh
 /data/jenkins/data/sh/post_build.sh example
 #!/bin/bash
@@ -111,8 +111,9 @@ log=$(< $log_file tail -c 4096)
 if [ -z "$log" ]; then
   exit 1
 fi
-/usr/bin/curl --data-urlencode text="$log" https://api.telegram.org/bot?*********************************************/sendMessage?chat_id=**********
+/usr/bin/curl --data-urlencode text="$log" https://api.telegram.org/bot**********************************************/sendMessage?chat_id=**********
 ```
+> Note: Report the build progress via telegram. 
 
 * * *
 
