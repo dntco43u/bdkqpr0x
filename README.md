@@ -62,8 +62,9 @@ if [ -z "$log" ]; then
 fi
 curl --data-urlencode text="$log" https://api.telegram.org/bot**********************************************/sendMessage?chat_id=**********
 ```
+> Note: For crontab root permission.
+
 * * *
-> Note: For crontab root permission
 
 ## Docker
 It can be used as docker build, but since it is a development environment, it is simply put in an openjdk container for speed.
