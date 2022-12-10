@@ -9,7 +9,6 @@ Batch templates consisting of springboot, mybatis, lombok, and jsch.<br>
   <img src="https://img.shields.io/badge/github-181717?style=flat-square&logo=github&logoColor=white">
   <img src="https://img.shields.io/badge/jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white">
   <img src="https://img.shields.io/badge/gradle-02303A?style=flat-square&logo=gradle&logoColor=white">
-  <br>
   <img src="https://img.shields.io/badge/oraclecloud-F80000?style=flat-square&logo=icloud&logoColor=white">
   <img src="https://img.shields.io/badge/rocky linux-10B981?style=flat-square&logo=rocky linux&logoColor=white">
   <img src="https://img.shields.io/badge/docker-2496ED?style=flat-square&logo=docker&logoColor=white">
@@ -77,6 +76,6 @@ docker exec -it auzj6fml java -jar /batch.jar --job.name=b04 chunkSize=10000 req
 
 * * *
 
-## Contact and license
-<a href="mailto:xqbty8po-dntco43u@yahoo.com" target="_blank"><img src="https://img.shields.io/badge/yahoo!-6001D2?style=flat-square&logo=yahoo!&logoColor=white"/></a><br>
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## License and contact
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)<br>
+<a href="mailto:xqbty8po-dntco43u@yahoo.com" target="_blank"><img src="https://img.shields.io/badge/yahoo!-6001D2?style=flat-square&logo=yahoo!&logoColor=white"/></a>
