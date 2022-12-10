@@ -72,8 +72,4 @@ docker exec -it auzj6fml java -jar /batch.jar --job.name=b04 chunkSize=10000 req
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-* * *
-
-## Contact
 <a href="mailto:xqbty8po-dntco43u@yahoo.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-EA4335?style=flat-square&logoGmail&logoColor=white" ></a>
