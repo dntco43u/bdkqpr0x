@@ -13,9 +13,8 @@ Batch templates consisting of springboot, mybatis, lombok, and jsch.<br>
   <img src="https://img.shields.io/badge/rocky linux-10B981?style=flat-square&logo=rocky linux&logoColor=white">
   <img src="https://img.shields.io/badge/docker-2496ED?style=flat-square&logo=docker&logoColor=white">
   <br>
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  <br>
 </div>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 * * *
 
