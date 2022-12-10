@@ -41,7 +41,29 @@ sudo docker exec -it auzj6fml java -jar /batch.jar --job.name=b03 chunkSize=1000
 sudo docker exec -it auzj6fml java -jar /batch.jar --job.name=b04 chunkSize=10000 requestDate=$(date "+%Y-%m-%d")
 ```
 
+Called from cron to notify the execution result to telegram.
+```sh
+/root/sh/bdkqpr0x.sh example
+#!/bin/bash
+log_file=/tmp/bdkqpr0x.log
+log_file_1=/tmp/bdkqpr0x_telegram_1.log
+{
+  systemctl stop rsyslog
+  docker exec -it auzj6fml java -jar /batch.jar --job.name=b04 chunkSize=10000 requestDate=$(date "+%Y-%m-%d")
+  systemctl start rsyslog
+} > $log_file
+{
+  echo "$0"
+  grep 'count=' $log_file
+} > $log_file_1
+log=$(< $log_file_1 tail -c 4096)
+if [ -z "$log" ]; then
+  exit 1
+fi
+curl --data-urlencode text="$log" https://api.telegram.org/bot**********************************************/sendMessage?chat_id=**********
+```
 * * *
+> Note: For crontab root permission
 
 ## Docker
 It can be used as docker build, but since it is a development environment, it is simply put in an openjdk container for speed.
@@ -111,7 +133,7 @@ log=$(< $log_file tail -c 4096)
 if [ -z "$log" ]; then
   exit 1
 fi
-/usr/bin/curl --data-urlencode text="$log" https://api.telegram.org/bot**********************************************/sendMessage?chat_id=**********
+curl --data-urlencode text="$log" https://api.telegram.org/bot**********************************************/sendMessage?chat_id=**********
 ```
 
 * * *
