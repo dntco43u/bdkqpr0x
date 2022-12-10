@@ -111,7 +111,7 @@ log=$(< $log_file tail -c 4096)
 if [ -z "$log" ]; then
   exit 1
 fi
-/usr/bin/curl --data-urlencode text="$log" https://api.telegram.org/bot**********************************************/sendMessage?chat_id=**********
+/usr/bin/curl --data-urlencode text="$log" https://api.telegram.org/bot?*********************************************/sendMessage?chat_id=**********
 ```
 
 * * *
