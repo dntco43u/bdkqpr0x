@@ -1,4 +1,6 @@
 # bdkqpr0x
+
+## Introduction
 <div align=center> 
   <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white">
   <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
@@ -8,10 +10,6 @@
   <br>
 </div>
 Batch templates consisting of springboot, mybatis, lombok, and jsch.
-
-* * *
-
-## Introduction
 The batch job is divided into 4 parts and each role is as follows.
 1. job b01: Batch program to transfer us-500.csv format / MySQL to Oracle, MySQL to File to Oracle
 2. job b02: Batch program to transfer us-500.csv format / Oracle to MySQL, Oracle to File to MySQL
@@ -68,9 +66,3 @@ sudo docker exec -it auzj6fml java -jar /batch.jar --job.name=b04 chunkSize=1000
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-* * *
-
-## Contact
-:mailbox:
-xqbty8po-dntco43u@yahoo.com
