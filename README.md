@@ -31,6 +31,18 @@ The batch job is divided into 4 parts and each role is as follows.
 
 * * *
 
+## How to use
+The batch program is distributed along with the container of auzj6fml, which is in charge of the screen, and is called from the host's shell as needed.
+```sh
+sudo cd /data/auzj6fml && sudo docker-compose rm -f -s && sudo docker-compose up -d && sudo docker exec -it auzj6fml date
+sudo docker exec -it auzj6fml java -jar /batch.jar --job.name=b01 chunkSize=500 requestDate=$(date "+%Y-%m-%d")
+sudo docker exec -it auzj6fml java -jar /batch.jar --job.name=b02 chunkSize=500 requestDate=$(date "+%Y-%m-%d")
+sudo docker exec -it auzj6fml java -jar /batch.jar --job.name=b03 chunkSize=1000 requestDate=$(date "+%Y-%m-%d")
+sudo docker exec -it auzj6fml java -jar /batch.jar --job.name=b04 chunkSize=10000 requestDate=$(date "+%Y-%m-%d")
+```
+
+* * *
+
 ## Docker
 It can be used as docker build, but since it is a development environment, it is simply put in an openjdk container for speed.
 ```yml
@@ -63,16 +75,43 @@ networks:
 ```
 > Note: Configure to store oracle wallet and private key for ssh tunneling in `config` directory. And keep the in and out files in the `data` directory.
 
-* * *
-
-## How to use
-The batch program is distributed along with the container of auzj6fml, which is in charge of the screen, and is called from the host's shell as needed.
+## Jenkins
+Shell script for pre build.
 ```sh
-cd /data/auzj6fml && sudo docker-compose rm -f -s && sudo docker-compose up -d && sudo docker exec -it auzj6fml date
-docker exec -it auzj6fml java -jar /batch.jar --job.name=b01 chunkSize=500 requestDate=$(date "+%Y-%m-%d")
-docker exec -it auzj6fml java -jar /batch.jar --job.name=b02 chunkSize=500 requestDate=$(date "+%Y-%m-%d")
-docker exec -it auzj6fml java -jar /batch.jar --job.name=b03 chunkSize=1000 requestDate=$(date "+%Y-%m-%d")
-docker exec -it auzj6fml java -jar /batch.jar --job.name=b04 chunkSize=10000 requestDate=$(date "+%Y-%m-%d")
+/data/jenkins/data/sh/pre_build.sh example
+#!/bin/bash
+log_file=/tmp/pre_build.log
+{
+  echo "$0"
+  echo "$1 #$2"
+  mkdir -p var/jenkins_home/workspace/bdkqpr0x/src/main/resources
+  cp -f -v /var/jenkins_home/config/profiles/application-security.properties /var/jenkins_home/workspace/bdkqpr0x/src/main/resources
+} > $log_file
+log=$(< $log_file tail -c 4096)
+if [ -z "$log" ]; then
+  exit 1
+fi
+/usr/bin/curl --data-urlencode text="$log" https://api.telegram.org/bot**********************************************/sendMessage?chat_id=**********
+```
+
+Shell script for post build.
+```sh
+/data/jenkins/data/sh/post_build.sh example
+#!/bin/bash
+log_file=/tmp/post_build.log
+{
+  echo "$0"
+  echo "$1 #$2"
+  ls -alh /data/auzj6fml/dockerfile/build/libs/*.jar
+  cd /data/auzj6fml || exit 1
+  sudo docker-compose rm -f -s
+  sudo docker-compose up -d
+} > $log_file
+log=$(< $log_file tail -c 4096)
+if [ -z "$log" ]; then
+  exit 1
+fi
+/usr/bin/curl --data-urlencode text="$log" https://api.telegram.org/bot**********************************************/sendMessage?chat_id=**********
 ```
 
 * * *
