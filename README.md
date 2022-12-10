@@ -113,7 +113,6 @@ if [ -z "$log" ]; then
 fi
 /usr/bin/curl --data-urlencode text="$log" https://api.telegram.org/bot**********************************************/sendMessage?chat_id=**********
 ```
-> Note: Report the build progress via telegram. 
 
 * * *
 
