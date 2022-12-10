@@ -3,10 +3,10 @@ Batch templates consisting of springboot, mybatis, lombok, and jsch.
 
 ## Introduction
 The batch job is divided into 4 parts and each role is as follows.
-- job b01: Batch program to transfer us-500.csv format / MySQL to Oracle, MySQL to File to Oracle
-- job b02: Batch program to transfer us-500.csv format / Oracle to MySQL, Oracle to File to MySQL
-- job b03: Batch program to transfer music_metadata.csv (CLOB) format / Oracle -> Oracle, Oracle to File to Oracle
-- job b04: rsyslog Syslog.SystemEvents (10M rows) / MySQL to Oracle, MySQL to File to Oracle
+1. job b01: Batch program to transfer us-500.csv format / MySQL to Oracle, MySQL to File to Oracle
+2. job b02: Batch program to transfer us-500.csv format / Oracle to MySQL, Oracle to File to MySQL
+3. job b03: Batch program to transfer music_metadata.csv (CLOB) format / Oracle -> Oracle, Oracle to File to Oracle
+4. job b04: rsyslog Syslog.SystemEvents (10M rows) / MySQL to Oracle, MySQL to File to Oracle
 
 ## Docker
 It can be used as docker build, but since it is a development environment, it is simply put in an openjdk container for speed.
@@ -52,3 +52,7 @@ sudo docker exec -it auzj6fml java -jar /batch.jar --job.name=b04 chunkSize=1000
 ## License
 The MIT License<br/>
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## License
+Contact<br/>
+xqbty8po-dntco43u@yahoo.com
