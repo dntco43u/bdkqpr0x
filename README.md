@@ -10,7 +10,7 @@ Batch templates consisting of springboot, mybatis, lombok, and jsch.<br>
   <img src="https://img.shields.io/badge/github-181717?style=flat-square&logo=github&logoColor=white">
   <img src="https://img.shields.io/badge/rocky linux-10B981?style=flat-square&logo=rocky linux&logoColor=white">
   <img src="https://img.shields.io/badge/docker-2496ED?style=flat-square&logo=docker&logoColor=white">
-  <img src="https://img.shields.io/badge/icloud-3693F3?style=flat-square&logo=oraclecloud&logoColor=white">
+  <img src="https://img.shields.io/badge/oraclecloud-3693F3?style=flat-square&logo=icloud&logoColor=white">
   <br>
 </div>
 
