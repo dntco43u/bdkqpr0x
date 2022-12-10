@@ -10,15 +10,16 @@
   <br>
 </div>
 
-
-Batch templates consisting of springboot, mybatis, lombok, and jsch.<br>
+Batch templates consisting of springboot, mybatis, lombok, and jsch.
 The batch job is divided into 4 parts and each role is as follows.
-
 1. job b01: Batch program to transfer us-500.csv format.
-    - MySQL to Oracle, MySQL to File to Oracle
-2. job b02: Batch program to transfer us-500.csv format / Oracle to MySQL, Oracle to File to MySQL
-3. job b03: Batch program to transfer music_metadata.csv (CLOB) format / Oracle -> Oracle, Oracle to File to Oracle
-4. job b04: rsyslog Syslog.SystemEvents (10M rows) / MySQL to Oracle, MySQL to File to Oracle
+    MySQL to Oracle, MySQL to File to Oracle
+2. job b02: Batch program to transfer us-500.csv format
+    Oracle to MySQL, Oracle to File to MySQL
+3. job b03: Batch program to transfer music_metadata.csv (CLOB) format
+    Oracle to Oracle, Oracle to File to Oracle
+4. job b04: rsyslog Syslog.SystemEvents (10M rows)
+    MySQL to Oracle, MySQL to File to Oracle
 
 * * *
 
@@ -60,10 +61,10 @@ networks:
 The batch program is distributed along with the container of auzj6fml, which is in charge of the screen, and is called from the host's shell as needed.
 ```sh
 cd /data/auzj6fml && sudo docker-compose rm -f -s && sudo docker-compose up -d && sudo docker exec -it auzj6fml date
-sudo docker exec -it auzj6fml java -jar /batch.jar --job.name=b01 chunkSize=10000 requestDate=$(date "+%Y-%m-%d")
-sudo docker exec -it auzj6fml java -jar /batch.jar --job.name=b02 chunkSize=10000 requestDate=$(date "+%Y-%m-%d")
-sudo docker exec -it auzj6fml java -jar /batch.jar --job.name=b03 chunkSize=10000 requestDate=$(date "+%Y-%m-%d")
-sudo docker exec -it auzj6fml java -jar /batch.jar --job.name=b04 chunkSize=10000 requestDate=$(date "+%Y-%m-%d")
+docker exec -it auzj6fml java -jar /batch.jar --job.name=b01 chunkSize=500 requestDate=$(date "+%Y-%m-%d")
+docker exec -it auzj6fml java -jar /batch.jar --job.name=b02 chunkSize=500 requestDate=$(date "+%Y-%m-%d")
+docker exec -it auzj6fml java -jar /batch.jar --job.name=b03 chunkSize=1000 requestDate=$(date "+%Y-%m-%d")
+docker exec -it auzj6fml java -jar /batch.jar --job.name=b04 chunkSize=10000 requestDate=$(date "+%Y-%m-%d")
 ```
 
 * * *
