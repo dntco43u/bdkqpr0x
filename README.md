@@ -19,14 +19,14 @@ Batch templates consisting of springboot, mybatis, lombok, and jsch.<br>
 
 ## Introduction
 The batch job is divided into 4 parts and each role is as follows.
-1. job b01: Batch program to transfer us-500.csv format.<br>
-    MySQL to Oracle, MySQL to File to Oracle
-2. job b02: Batch program to transfer us-500.csv format.<br>
-    Oracle to MySQL, Oracle to File to MySQL
-3. job b03: Batch program to transfer music_metadata.csv (CLOB) format.<br>
-    Oracle to Oracle, Oracle to File to Oracle
-4. job b04: rsyslog Syslog.SystemEvents. (10M rows)<br>
-    MySQL to Oracle, MySQL to File to Oracle
++ job b01: Batch program to transfer us-500.csv format.<br>
+  MySQL to Oracle, MySQL to File to Oracle
++ job b02: Batch program to transfer us-500.csv format.<br>
+  Oracle to MySQL, Oracle to File to MySQL
++ job b03: Batch program to transfer music_metadata.csv (CLOB) format.<br>
+  Oracle to Oracle, Oracle to File to Oracle
++ job b04: rsyslog Syslog.SystemEvents. (10M rows)<br>
+  MySQL to Oracle, MySQL to File to Oracle
 
 * * *
 
