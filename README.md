@@ -14,6 +14,7 @@ Batch templates consisting of springboot, mybatis, lombok, and jsch.<br>
   <img src="https://img.shields.io/badge/oraclecloud-F80000?style=flat-square&logo=icloud&logoColor=white">
   <img src="https://img.shields.io/badge/rocky linux-10B981?style=flat-square&logo=rocky linux&logoColor=white">
   <img src="https://img.shields.io/badge/docker-2496ED?style=flat-square&logo=docker&logoColor=white">
+  <img src="https://img.shields.io/badge/openjdk-FFFFFF?style=flat-square&logo=openjdk&logoColor=white">
   <br>
 </div>
 
