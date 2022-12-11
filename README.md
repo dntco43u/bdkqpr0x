@@ -34,7 +34,7 @@ The batch job is divided into 4 parts and each role is as follows.
 * * *
 
 ## How to use
-The batch program is distributed along with the container of auzj6fml, which is in charge of the screen, and is called from the host's shell as needed.
+The batch program is distributed along with the container of auzj6fml, which is in charge of the UI, and is called from the host's shell as needed.
 ```sh
 sudo cd /data/auzj6fml && sudo docker-compose rm -f -s && sudo docker-compose up -d && sudo docker exec -it auzj6fml date
 sudo docker exec -it auzj6fml java -jar /batch.jar --job.name=b01 chunkSize=500 requestDate=$(date "+%Y-%m-%d")
