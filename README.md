@@ -44,8 +44,9 @@ sudo docker exec -it auzj6fml java -jar /batch.jar --job.name=b04 chunkSize=1000
 ```
 
 Called from cron to notify the execution result to telegram.
+
+`/root/sh/bdkqpr0x.sh example`
 ```sh
-/root/sh/bdkqpr0x.sh example
 #!/bin/bash
 log_file=/tmp/bdkqpr0x.log
 log_file_1=/tmp/bdkqpr0x_telegram_1.log
@@ -70,8 +71,9 @@ curl --data-urlencode text="$log" https://api.telegram.org/bot******************
 
 ## Docker
 It can be used as docker build, but since it is a development environment, it is simply put in an openjdk container for speed.
+
+`docker-compose.yml example`
 ```yml
-docker-compose.yml example
 version: "3.8"
 services:
   auzj6fml:
@@ -102,8 +104,9 @@ networks:
 
 ## Jenkins
 Shell script for pre build. Runs in a jenkins docker container.
+
+`/data/jenkins/data/sh/pre_build.sh example`
 ```sh
-/data/jenkins/data/sh/pre_build.sh example
 #!/bin/bash
 log_file=/tmp/pre_build.log
 {
@@ -122,8 +125,9 @@ fi
 ```
 
 Shell script for post build. Runs in the target host to be deployed.
+
+`/data/jenkins/data/sh/post_build.sh example`
 ```sh
-/data/jenkins/data/sh/post_build.sh example
 #!/bin/bash
 log_file=/tmp/post_build.log
 {
