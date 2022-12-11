@@ -126,11 +126,12 @@ fi
 
 Shell script for post build. Runs in the target host to be deployed.
 
-`/data/jenkins/data/sh/post_build.sh example`
+`/data/auzj6fml/sh/post_build.sh example`
 ```sh
 #!/bin/bash
 log_file=/tmp/post_build.log
 {
+  hostname -f
   echo "$0"
   echo "$1 #$2"
   ls -alh /data/auzj6fml/dockerfile/build/libs/*.jar
