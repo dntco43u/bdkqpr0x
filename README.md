@@ -114,8 +114,8 @@ log_file=/tmp/pre_build.log
   echo "$1 #$2"
   mkdir -p var/jenkins_home/workspace/auzj6fml/src/main/resources
   mkdir -p var/jenkins_home/workspace/bdkqpr0x/src/main/resources
-  cp -f -v /var/jenkins_home/config/profiles/application-security.properties /var/jenkins_home/workspace/auzj6fml/src/main/resources
-  cp -f -v /var/jenkins_home/config/profiles/application-security.properties /var/jenkins_home/workspace/bdkqpr0x/src/main/resources
+  cp -f -v /var/jenkins_home/config/profiles/auzj6fml/application-security.properties /var/jenkins_home/workspace/auzj6fml/src/main/resources
+  cp -f -v /var/jenkins_home/config/profiles/bdkqpr0x/application-security.properties /var/jenkins_home/workspace/bdkqpr0x/src/main/resources
 } > $log_file
 log=$(< $log_file tail -c 4096)
 if [ -z "$log" ]; then
