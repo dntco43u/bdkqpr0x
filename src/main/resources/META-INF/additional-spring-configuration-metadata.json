@@ -1,0 +1,132 @@
+{"properties": [
+  {
+    "name": "fhy8vp3u.job.b01.csv_file",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.job.b01.csv_file'"
+  },
+  {
+    "name": "fhy8vp3u.job.b01.csv_file_encoding",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.job.b01.csv_file_encoding'"
+  },
+  {
+    "name": "fhy8vp3u.job.b01.csv_file_header",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.job.b01.csv_file_header'"
+  },
+  {
+    "name": "fhy8vp3u.job.b02.csv_file",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.job.b02.csv_file'"
+  },
+  {
+    "name": "fhy8vp3u.job.b02.csv_file_encoding",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.job.b02.csv_file_encoding'"
+  },
+  {
+    "name": "fhy8vp3u.job.b02.csv_file_header",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.job.b02.csv_file_header'"
+  },
+  {
+    "name": "fhy8vp3u.job.b03.csv_file",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.job.b03.csv_file'"
+  },
+  {
+    "name": "fhy8vp3u.job.b03.csv_file_encoding",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.job.b03.csv_file_encoding'"
+  },
+  {
+    "name": "fhy8vp3u.job.b03.csv_file_header",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.job.b03.csv_file_header'"
+  },
+  {
+    "name": "fhy8vp3u.job.b04.csv_file",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.job.b04.csv_file'"
+  },
+  {
+    "name": "fhy8vp3u.job.b04.csv_file_encoding",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.job.b04.csv_file_encoding'"
+  },
+  {
+    "name": "fhy8vp3u.job.b04.csv_file_header",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.job.b04.csv_file_header'"
+  },
+  {
+    "name": "fhy8vp3u.ssh.user",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.ssh.user'"
+  },
+  {
+    "name": "fhy8vp3u.ssh.pem_key",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.ssh.pem_key'"
+  },
+  {
+    "name": "fhy8vp3u.ssh.remote_server",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.ssh.remote_server'"
+  },
+  {
+    "name": "fhy8vp3u.ssh.remote_port",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.ssh.remote_port'"
+  },
+  {
+    "name": "fhy8vp3u.ssh.tunnel_remote_server",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.ssh.tunnel_remote_server'"
+  },
+  {
+    "name": "fhy8vp3u.ssh.tunnel_remote_port",
+    "type": "java.lang.String",
+    "description": "A description for 'fhy8vp3u.ssh.tunnel_remote_port'"
+  },
+  {
+    "name": "spring.datasource-cqa7wtjg.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource-cqa7wtjg.driver-class-name'"
+  },
+  {
+    "name": "spring.datasource-cqa7wtjg.jdbc-url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource-cqa7wtjg.jdbc-url'"
+  },
+  {
+    "name": "spring.datasource-cqa7wtjg.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource-cqa7wtjg.username'"
+  },
+  {
+    "name": "spring.datasource-cqa7wtjg.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource-cqa7wtjg.password'"
+  },
+  {
+    "name": "spring.datasource-gvp6nx1a.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource-gvp6nx1a.driver-class-name'"
+  },
+  {
+    "name": "spring.datasource-gvp6nx1a.jdbc-url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource-gvp6nx1a.jdbc-url'"
+  },
+  {
+    "name": "spring.datasource-gvp6nx1a.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource-gvp6nx1a.username'"
+  },
+  {
+    "name": "spring.datasource-gvp6nx1a.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource-gvp6nx1a.password'"
+  }
+]}

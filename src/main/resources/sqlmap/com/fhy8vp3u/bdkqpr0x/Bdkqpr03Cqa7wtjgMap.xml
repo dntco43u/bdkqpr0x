@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr03MapperCqa7wtjg">
+  <select id="select001" parameterType="map" resultType="Bdkqpr03DTO">
+    SELECT
+        T2.ID
+      , T2.DISC
+      , T2.TOTALDISCS
+      , T2.TRACK
+      , T2.TOTALTRACKS
+      , T2."YEAR"
+      , T2.ALBUM
+      , T2.CONTENTGROUP
+      , T2.TITLE
+      , T2.ALBUMARTIST
+      , T2.ARTIST
+      , T2.PUBLISHER
+      , T2.GENRE
+      , T2.MEDIATYPE
+    FROM
+      (SELECT
+          /*+ INDEX_ASC(T1 BDKQPR03_PK) */
+          ROWNUM RN
+          , T1.*
+        FROM
+          (SELECT
+              *
+            FROM
+              CQA7WTJG.BDKQPR03
+          ) T1
+        WHERE
+          ROWNUM <![CDATA[<=]]> #{_skiprows} + #{_pagesize}
+      ) T2
+    WHERE    
+      T2.RN <![CDATA[>]]> #{_skiprows}
+  </select> 
+  <select id="select002" parameterType="map" resultType="Bdkqpr03DTO">
+    SELECT
+        ID
+      , DISC
+      , TOTALDISCS
+      , TRACK
+      , TOTALTRACKS
+      , "YEAR"
+      , ALBUM
+      , CONTENTGROUP
+      , TITLE
+      , ALBUMARTIST
+      , ARTIST
+      , PUBLISHER
+      , GENRE
+      , MEDIATYPE
+      , CREATE_USER
+      , CREATE_TIME
+      , UPDATE_USER
+      , UPDATE_TIME
+    FROM
+      CQA7WTJG.BDKQPR03
+    WHERE
+      1 = 1
+      AND ID = #{id}
+  </select>
+  <select id="select003" resultType="int">
+    SELECT
+      /*+ INDEX_FFS(T1 BDKQPR03_PK) */
+      count(*) COUNT
+    FROM
+      CQA7WTJG.BDKQPR03_COPY T1 
+  </select>
+  <insert id="insert001" parameterType="Bdkqpr03DTO">
+    INSERT
+      INTO
+      CQA7WTJG.BDKQPR03_COPY
+    ( DISC
+    , TOTALDISCS
+    , TRACK
+    , TOTALTRACKS
+    , "YEAR"
+    , ALBUM
+    , CONTENTGROUP
+    , TITLE
+    , ALBUMARTIST
+    , ARTIST
+    , PUBLISHER
+    , GENRE
+    , MEDIATYPE
+    , CREATE_USER
+    , CREATE_TIME
+    )
+  VALUES(
+      #{disc}
+    , #{totaldiscs} 
+    , #{track}       
+    , #{totaltracks} 
+    , #{year}        
+    , #{album}       
+    , #{contentgroup}
+    , #{title}       
+    , #{albumartist} 
+    , #{artist}      
+    , #{publisher}   
+    , #{genre}       
+    , #{mediatype}   
+    , #{createUser}  
+    , CURRENT_TIMESTAMP
+    )
+  </insert>
+  <update id="update001" parameterType="Bdkqpr03DTO">
+    UPDATE
+      CQA7WTJG.BDKQPR03_COPY
+    SET
+        UPDATE_USER = #{updateUser}
+      , UPDATE_TIME = CURRENT_TIMESTAMP
+  </update>
+  <update id="update002" parameterType="Bdkqpr03DTO">
+    UPDATE
+      CQA7WTJG.BDKQPR03_COPY
+    SET
+        DISC = #{disc}
+      , TOTALDISCS = #{totaldiscs} 
+      , TRACK = #{track}     
+      , TOTALTRACKS = #{totaltracks} 
+      , "YEAR" = #{year}   
+      , ALBUM = #{album}       
+      , CONTENTGROUP = #{contentgroup}
+      , TITLE = #{title}       
+      , ALBUMARTIST = #{albumartist} 
+      , ARTIST = #{artist}   
+      , PUBLISHER = #{publisher}   
+      , GENRE = #{genre}  
+      , MEDIATYPE = #{mediatype}   
+      , UPDATE_USER = #{updateUser}
+      , UPDATE_TIME = CURRENT_TIMESTAMP
+    WHERE
+      1 = 1
+      AND ID = #{id}
+  </update>
+  <delete id="delete001">
+    TRUNCATE
+    TABLE
+      CQA7WTJG.BDKQPR03_COPY
+  </delete>
+  <delete id="delete002" parameterType="map">
+    DELETE
+    FROM
+      CQA7WTJG.BDKQPR03_COPY
+    WHERE
+      1 = 1
+      AND ID = #{id}
+  </delete>
+</mapper>
