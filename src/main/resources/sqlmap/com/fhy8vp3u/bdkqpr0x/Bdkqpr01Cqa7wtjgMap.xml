@@ -3,19 +3,19 @@
 <mapper namespace="com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr01MapperCqa7wtjg">
   <select id="select001" parameterType="map" resultType="Bdkqpr01DTO">
     SELECT
-        T2.ID
-      , T2.EMPLOYEE_FIRST_NAME
-      , T2.EMPLOYEE_LAST_NAME
-      , T2.COMPANY_NAME
-      , T2.COMPANY_ADDRESS
-      , T2.COMPANY_CITY
-      , T2.COMPANY_COUNTY
-      , T2.COMPANY_STATE
-      , T2.COMPANY_ZIP
-      , T2.COMPANY_PHONE1
-      , T2.PERSONAL_PHONE2
-      , T2.PERSONAL_EMAIL
-      , T2.COMPANY_WEB
+      T2.ID
+    , T2.EMPLOYEE_FIRST_NAME
+    , T2.EMPLOYEE_LAST_NAME
+    , T2.COMPANY_NAME
+    , T2.COMPANY_ADDRESS
+    , T2.COMPANY_CITY
+    , T2.COMPANY_COUNTY
+    , T2.COMPANY_STATE
+    , T2.COMPANY_ZIP
+    , T2.COMPANY_PHONE1
+    , T2.PERSONAL_PHONE2
+    , T2.PERSONAL_EMAIL
+    , T2.COMPANY_WEB
     FROM
       (SELECT
           /*+ INDEX_ASC(T1 BDKQPR01_PK) */
@@ -35,19 +35,19 @@
   </select> 
   <select id="select002" parameterType="map" resultType="Bdkqpr01DTO">
     SELECT
-        ID
-      , EMPLOYEE_FIRST_NAME
-      , EMPLOYEE_LAST_NAME
-      , COMPANY_NAME
-      , COMPANY_ADDRESS
-      , COMPANY_CITY
-      , COMPANY_COUNTY
-      , COMPANY_STATE
-      , COMPANY_ZIP
-      , COMPANY_PHONE1
-      , PERSONAL_PHONE2
-      , PERSONAL_EMAIL
-      , COMPANY_WEB
+      ID
+    , EMPLOYEE_FIRST_NAME
+    , EMPLOYEE_LAST_NAME
+    , COMPANY_NAME
+    , COMPANY_ADDRESS
+    , COMPANY_CITY
+    , COMPANY_COUNTY
+    , COMPANY_STATE
+    , COMPANY_ZIP
+    , COMPANY_PHONE1
+    , PERSONAL_PHONE2
+    , PERSONAL_EMAIL
+    , COMPANY_WEB
     FROM
       CQA7WTJG.BDKQPR01
     WHERE
@@ -62,10 +62,9 @@
       CQA7WTJG.BDKQPR01 T1 
   </select>
   <insert id="insert001" parameterType="Bdkqpr01DTO">
-    INSERT
-      INTO
-      CQA7WTJG.BDKQPR01
-      ( EMPLOYEE_FIRST_NAME
+    INSERT INTO
+      CQA7WTJG.BDKQPR01 (
+        EMPLOYEE_FIRST_NAME
       , EMPLOYEE_LAST_NAME
       , COMPANY_NAME
       , COMPANY_ADDRESS
@@ -80,7 +79,7 @@
       , CREATE_USER
       , CREATE_TIME
       )
-    VALUES(
+    VALUES (
         #{employeeFirstName}
       , #{employeeLastName}
       , #{companyName}
@@ -95,33 +94,33 @@
       , #{companyWeb}
       , #{createUser}
       , CURRENT_TIMESTAMP
-    )
+      )
   </insert>
   <update id="update001" parameterType="Bdkqpr01DTO">
     UPDATE
       CQA7WTJG.BDKQPR01
     SET
-        UPDATE_USER = #{updateUser}
-      , UPDATE_TIME = CURRENT_TIMESTAMP
+      UPDATE_USER = #{updateUser}
+    , UPDATE_TIME = CURRENT_TIMESTAMP
   </update>
   <update id="update002" parameterType="Bdkqpr01DTO">
     UPDATE
       CQA7WTJG.BDKQPR01
     SET
-        EMPLOYEE_FIRST_NAME = #{employeeFirstName}
-      , EMPLOYEE_LAST_NAME = #{employeeLastName}
-      , COMPANY_NAME = #{companyName}
-      , COMPANY_ADDRESS = #{companyAddress}
-      , COMPANY_CITY = #{companyCity}
-      , COMPANY_COUNTY = #{companyCounty}
-      , COMPANY_STATE = #{companyState}
-      , COMPANY_ZIP = #{companyZip}
-      , COMPANY_PHONE1 = #{companyPhone1}
-      , PERSONAL_PHONE2 = #{personalPhone2}
-      , PERSONAL_EMAIL = #{personalEmail}
-      , COMPANY_WEB = #{companyWeb}
-      , UPDATE_USER = #{updateUser}
-      , UPDATE_TIME = CURRENT_TIMESTAMP
+      EMPLOYEE_FIRST_NAME = #{employeeFirstName}
+    , EMPLOYEE_LAST_NAME = #{employeeLastName}
+    , COMPANY_NAME = #{companyName}
+    , COMPANY_ADDRESS = #{companyAddress}
+    , COMPANY_CITY = #{companyCity}
+    , COMPANY_COUNTY = #{companyCounty}
+    , COMPANY_STATE = #{companyState}
+    , COMPANY_ZIP = #{companyZip}
+    , COMPANY_PHONE1 = #{companyPhone1}
+    , PERSONAL_PHONE2 = #{personalPhone2}
+    , PERSONAL_EMAIL = #{personalEmail}
+    , COMPANY_WEB = #{companyWeb}
+    , UPDATE_USER = #{updateUser}
+    , UPDATE_TIME = CURRENT_TIMESTAMP
     WHERE
       1 = 1
       AND ID = #{id}
@@ -132,8 +131,7 @@
       CQA7WTJG.BDKQPR01
   </delete>
   <delete id="delete002" parameterType="map">
-    DELETE
-    FROM
+    DELETE FROM
       CQA7WTJG.BDKQPR01
     WHERE
       1 = 1

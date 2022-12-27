@@ -3,29 +3,29 @@
 <mapper namespace="com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr04MapperGvp6nx1a">
   <select id="select001" parameterType="map" resultType="SystemEventsDTO">
     SELECT
-        ID
-      , CUSTOMER_ID
-      , RECEIVED_AT
-      , DEVICE_REPORTED_TIME
-      , FACILITY
-      , PRIORITY
-      , FROM_HOST
-      , MESSAGE
-      , NT_SEVERITY
-      , IMPORTANCE
-      , EVENT_SOURCE
-      , EVENT_USER
-      , EVENT_CATEGORY
-      , EVENT_ID
-      , EVENT_BINARY_DATA
-      , MAX_AVAILABLE
-      , CURR_USAGE
-      , MIN_USAGE
-      , MAX_USAGE
-      , INFO_UNIT_ID
-      , SYS_LOG_TAG
-      , EVENT_LOG_TYPE
-      , GENERIC_FILE_NAME
+      ID
+    , CUSTOMER_ID
+    , RECEIVED_AT
+    , DEVICE_REPORTED_TIME
+    , FACILITY
+    , PRIORITY
+    , FROM_HOST
+    , MESSAGE
+    , NT_SEVERITY
+    , IMPORTANCE
+    , EVENT_SOURCE
+    , EVENT_USER
+    , EVENT_CATEGORY
+    , EVENT_ID
+    , EVENT_BINARY_DATA
+    , MAX_AVAILABLE
+    , CURR_USAGE
+    , MIN_USAGE
+    , MAX_USAGE
+    , INFO_UNIT_ID
+    , SYS_LOG_TAG
+    , EVENT_LOG_TYPE
+    , GENERIC_FILE_NAME
     FROM
       Syslog.SYSTEM_EVENTS
     ORDER BY
@@ -34,29 +34,29 @@
   </select>
   <select id="select002" parameterType="map" resultType="SystemEventsDTO">
     SELECT
-        ID
-      , CUSTOMER_ID
-      , RECEIVED_AT
-      , DEVICE_REPORTED_TIME
-      , FACILITY
-      , PRIORITY
-      , FROM_HOST
-      , MESSAGE
-      , NT_SEVERITY
-      , IMPORTANCE
-      , EVENT_SOURCE
-      , EVENT_USER
-      , EVENT_CATEGORY
-      , EVENT_ID
-      , EVENT_BINARY_DATA
-      , MAX_AVAILABLE
-      , CURR_USAGE
-      , MIN_USAGE
-      , MAX_USAGE
-      , INFO_UNIT_ID
-      , SYS_LOG_TAG
-      , EVENT_LOG_TYPE
-      , GENERIC_FILE_NAME
+      ID
+    , CUSTOMER_ID
+    , RECEIVED_AT
+    , DEVICE_REPORTED_TIME
+    , FACILITY
+    , PRIORITY
+    , FROM_HOST
+    , MESSAGE
+    , NT_SEVERITY
+    , IMPORTANCE
+    , EVENT_SOURCE
+    , EVENT_USER
+    , EVENT_CATEGORY
+    , EVENT_ID
+    , EVENT_BINARY_DATA
+    , MAX_AVAILABLE
+    , CURR_USAGE
+    , MIN_USAGE
+    , MAX_USAGE
+    , INFO_UNIT_ID
+    , SYS_LOG_TAG
+    , EVENT_LOG_TYPE
+    , GENERIC_FILE_NAME
     FROM
       Syslog.SYSTEM_EVENTS
     WHERE
@@ -70,10 +70,9 @@
       Syslog.SYSTEM_EVENTS
   </select>
   <insert id="insert001" parameterType="SystemEventsDTO">
-    INSERT
-      INTO
-      Syslog.SYSTEM_EVENTS
-      ( CUSTOMER_ID
+    INSERT INTO
+      Syslog.SYSTEM_EVENTS ( 
+        CUSTOMER_ID
       , RECEIVED_AT
       , DEVICE_REPORTED_TIME
       , FACILITY
@@ -97,59 +96,59 @@
       , GENERIC_FILE_NAME
       , SYSTEM_ID
       )
-    VALUES(
-      #{customerId} 
-    , #{receivedAt} 
-    , #{deviceReportedTime} 
-    , #{facility} 
-    , #{priority} 
-    , #{fromHost} 
-    , #{message} 
-    , #{ntSeverity} 
-    , #{importance} 
-    , #{eventSource} 
-    , #{eventUser} 
-    , #{eventCategory} 
-    , #{eventId} 
-    , #{eventBinaryData} 
-    , #{maxAvailable} 
-    , #{currUsage} 
-    , #{minUsage} 
-    , #{maxUsage} 
-    , #{infoUnitId} 
-    , #{sysLogTag} 
-    , #{eventLogType} 
-    , #{genericFileName} 
-    , #{systemId} 
-    )
+    VALUES (
+        #{customerId} 
+      , #{receivedAt} 
+      , #{deviceReportedTime} 
+      , #{facility} 
+      , #{priority} 
+      , #{fromHost} 
+      , #{message} 
+      , #{ntSeverity} 
+      , #{importance} 
+      , #{eventSource} 
+      , #{eventUser} 
+      , #{eventCategory} 
+      , #{eventId} 
+      , #{eventBinaryData} 
+      , #{maxAvailable} 
+      , #{currUsage} 
+      , #{minUsage} 
+      , #{maxUsage} 
+      , #{infoUnitId} 
+      , #{sysLogTag} 
+      , #{eventLogType} 
+      , #{genericFileName} 
+      , #{systemId} 
+      )
   </insert>
   <update id="update001" parameterType="SystemEventsDTO">
     UPDATE
       Syslog.SYSTEM_EVENTS
     SET
-        CUSTOMER_ID = #{customerId}                     
-      , RECEIVED_AT = #{receivedAt}                     
-      , DEVICE_REPORTED_TIME = #{deviceReportedTime}            
-      , FACILITY = #{facility}                        
-      , PRIORITY = #{priority}                        
-      , FROM_HOST = #{fromHost}                      
-      , MESSAGE = #{message}                      
-      , NT_SEVERITY = #{ntSeverity}                    
-      , IMPORTANCE = #{importance}                     
-      , EVENT_SOURCE = #{eventSource}                    
-      , EVENT_USER = #{eventUser}                      
-      , EVENT_CATEGORY = #{eventCategory}                  
-      , EVENT_ID = #{eventId}                        
-      , EVENT_BINARY_DATA = #{eventBinaryData}                 
-      , MAX_AVAILABLE = #{maxAvailable}                   
-      , CURR_USAGE = #{currUsage}                      
-      , MIN_USAGE = #{minUsage}                       
-      , MAX_USAGE = #{maxUsage}                       
-      , INFO_UNIT_ID =  #{infoUnitId}                   
-      , SYS_LOG_TAG = #{sysLogTag}                     
-      , EVENT_LOG_TYPE = #{eventLogType}                  
-      , GENERIC_FILE_NAME = #{genericFileName}               
-      , SYSTEM_ID = #{systemId}  
+      CUSTOMER_ID = #{customerId}                     
+    , RECEIVED_AT = #{receivedAt}                     
+    , DEVICE_REPORTED_TIME = #{deviceReportedTime}            
+    , FACILITY = #{facility}                        
+    , PRIORITY = #{priority}                        
+    , FROM_HOST = #{fromHost}                      
+    , MESSAGE = #{message}                      
+    , NT_SEVERITY = #{ntSeverity}                    
+    , IMPORTANCE = #{importance}                     
+    , EVENT_SOURCE = #{eventSource}                    
+    , EVENT_USER = #{eventUser}                      
+    , EVENT_CATEGORY = #{eventCategory}                  
+    , EVENT_ID = #{eventId}                        
+    , EVENT_BINARY_DATA = #{eventBinaryData}                 
+    , MAX_AVAILABLE = #{maxAvailable}                   
+    , CURR_USAGE = #{currUsage}                      
+    , MIN_USAGE = #{minUsage}                       
+    , MAX_USAGE = #{maxUsage}                       
+    , INFO_UNIT_ID =  #{infoUnitId}                   
+    , SYS_LOG_TAG = #{sysLogTag}                     
+    , EVENT_LOG_TYPE = #{eventLogType}                  
+    , GENERIC_FILE_NAME = #{genericFileName}               
+    , SYSTEM_ID = #{systemId}  
     WHERE
       1 = 1
       AND ID = #{id}
@@ -159,8 +158,7 @@
       Syslog.SYSTEM_EVENTS
   </delete>
   <delete id="delete002" parameterType="map">
-    DELETE
-    FROM
+    DELETE FROM
       Syslog.SYSTEM_EVENTS
     WHERE
       1 = 1

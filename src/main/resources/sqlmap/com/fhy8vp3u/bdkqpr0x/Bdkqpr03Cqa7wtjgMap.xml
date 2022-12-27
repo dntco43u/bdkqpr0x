@@ -3,20 +3,20 @@
 <mapper namespace="com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr03MapperCqa7wtjg">
   <select id="select001" parameterType="map" resultType="Bdkqpr03DTO">
     SELECT
-        T2.ID
-      , T2.DISC
-      , T2.TOTALDISCS
-      , T2.TRACK
-      , T2.TOTALTRACKS
-      , T2."YEAR"
-      , T2.ALBUM
-      , T2.CONTENTGROUP
-      , T2.TITLE
-      , T2.ALBUMARTIST
-      , T2.ARTIST
-      , T2.PUBLISHER
-      , T2.GENRE
-      , T2.MEDIATYPE
+      T2.ID
+    , T2.DISC
+    , T2.TOTALDISCS
+    , T2.TRACK
+    , T2.TOTALTRACKS
+    , T2."YEAR"
+    , T2.ALBUM
+    , T2.CONTENTGROUP
+    , T2.TITLE
+    , T2.ALBUMARTIST
+    , T2.ARTIST
+    , T2.PUBLISHER
+    , T2.GENRE
+    , T2.MEDIATYPE
     FROM
       (SELECT
           /*+ INDEX_ASC(T1 BDKQPR03_PK) */
@@ -68,26 +68,25 @@
       CQA7WTJG.BDKQPR03_COPY T1 
   </select>
   <insert id="insert001" parameterType="Bdkqpr03DTO">
-    INSERT
-      INTO
-      CQA7WTJG.BDKQPR03_COPY
-    ( DISC
-    , TOTALDISCS
-    , TRACK
-    , TOTALTRACKS
-    , "YEAR"
-    , ALBUM
-    , CONTENTGROUP
-    , TITLE
-    , ALBUMARTIST
-    , ARTIST
-    , PUBLISHER
-    , GENRE
-    , MEDIATYPE
-    , CREATE_USER
-    , CREATE_TIME
-    )
-  VALUES(
+    INSERT INTO
+      CQA7WTJG.BDKQPR03_COPY (
+        DISC
+      , TOTALDISCS
+      , TRACK
+      , TOTALTRACKS
+      , "YEAR"
+      , ALBUM
+      , CONTENTGROUP
+      , TITLE
+      , ALBUMARTIST
+      , ARTIST
+      , PUBLISHER
+      , GENRE
+      , MEDIATYPE
+      , CREATE_USER
+      , CREATE_TIME
+      )
+  VALUES (
       #{disc}
     , #{totaldiscs} 
     , #{track}       
@@ -109,28 +108,28 @@
     UPDATE
       CQA7WTJG.BDKQPR03_COPY
     SET
-        UPDATE_USER = #{updateUser}
-      , UPDATE_TIME = CURRENT_TIMESTAMP
+      UPDATE_USER = #{updateUser}
+    , UPDATE_TIME = CURRENT_TIMESTAMP
   </update>
   <update id="update002" parameterType="Bdkqpr03DTO">
     UPDATE
       CQA7WTJG.BDKQPR03_COPY
     SET
-        DISC = #{disc}
-      , TOTALDISCS = #{totaldiscs} 
-      , TRACK = #{track}     
-      , TOTALTRACKS = #{totaltracks} 
-      , "YEAR" = #{year}   
-      , ALBUM = #{album}       
-      , CONTENTGROUP = #{contentgroup}
-      , TITLE = #{title}       
-      , ALBUMARTIST = #{albumartist} 
-      , ARTIST = #{artist}   
-      , PUBLISHER = #{publisher}   
-      , GENRE = #{genre}  
-      , MEDIATYPE = #{mediatype}   
-      , UPDATE_USER = #{updateUser}
-      , UPDATE_TIME = CURRENT_TIMESTAMP
+      DISC = #{disc}
+    , TOTALDISCS = #{totaldiscs} 
+    , TRACK = #{track}     
+    , TOTALTRACKS = #{totaltracks} 
+    , "YEAR" = #{year}   
+    , ALBUM = #{album}       
+    , CONTENTGROUP = #{contentgroup}
+    , TITLE = #{title}       
+    , ALBUMARTIST = #{albumartist} 
+    , ARTIST = #{artist}   
+    , PUBLISHER = #{publisher}   
+    , GENRE = #{genre}  
+    , MEDIATYPE = #{mediatype}   
+    , UPDATE_USER = #{updateUser}
+    , UPDATE_TIME = CURRENT_TIMESTAMP
     WHERE
       1 = 1
       AND ID = #{id}
@@ -141,8 +140,7 @@
       CQA7WTJG.BDKQPR03_COPY
   </delete>
   <delete id="delete002" parameterType="map">
-    DELETE
-    FROM
+    DELETE FROM
       CQA7WTJG.BDKQPR03_COPY
     WHERE
       1 = 1

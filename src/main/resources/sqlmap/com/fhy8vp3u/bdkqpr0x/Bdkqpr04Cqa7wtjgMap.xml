@@ -3,30 +3,30 @@
 <mapper namespace="com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr04MapperCqa7wtjg">
   <select id="select001" parameterType="map" resultType="SystemEventsDTO">
     SELECT
-        T2.ID
-      , T2.CUSTOMER_ID
-      , T2.RECEIVED_AT
-      , T2.DEVICE_REPORTED_TIME
-      , T2.FACILITY
-      , T2.PRIORITY
-      , T2.FROM_HOST
-      , T2.MESSAGE
-      , T2.NT_SEVERITY
-      , T2.IMPORTANCE
-      , T2.EVENT_SOURCE
-      , T2.EVENT_USER
-      , T2.EVENT_CATEGORY
-      , T2.EVENT_ID
-      , T2.EVENT_BINARY_DATA
-      , T2.MAX_AVAILABLE
-      , T2.CURR_USAGE
-      , T2.MIN_USAGE
-      , T2.MAX_USAGE
-      , T2.INFO_UNIT_ID
-      , T2.SYS_LOG_TAG
-      , T2.EVENT_LOG_TYPE
-      , T2.GENERIC_FILE_NAME
-      , T2.SYSTEM_ID
+      T2.ID
+    , T2.CUSTOMER_ID
+    , T2.RECEIVED_AT
+    , T2.DEVICE_REPORTED_TIME
+    , T2.FACILITY
+    , T2.PRIORITY
+    , T2.FROM_HOST
+    , T2.MESSAGE
+    , T2.NT_SEVERITY
+    , T2.IMPORTANCE
+    , T2.EVENT_SOURCE
+    , T2.EVENT_USER
+    , T2.EVENT_CATEGORY
+    , T2.EVENT_ID
+    , T2.EVENT_BINARY_DATA
+    , T2.MAX_AVAILABLE
+    , T2.CURR_USAGE
+    , T2.MIN_USAGE
+    , T2.MAX_USAGE
+    , T2.INFO_UNIT_ID
+    , T2.SYS_LOG_TAG
+    , T2.EVENT_LOG_TYPE
+    , T2.GENERIC_FILE_NAME
+    , T2.SYSTEM_ID
     FROM
       (SELECT
           /*+ INDEX_ASC(T1 SYSTEM_EVENTS_PK) */
@@ -46,30 +46,30 @@
   </select> 
   <select id="select002" parameterType="map" resultType="SystemEventsDTO">
     SELECT
-        ID
-      , CUSTOMER_ID
-      , RECEIVED_AT
-      , DEVICE_REPORTED_TIME
-      , FACILITY
-      , PRIORITY
-      , FROM_HOST
-      , MESSAGE
-      , NT_SEVERITY
-      , IMPORTANCE
-      , EVENT_SOURCE
-      , EVENT_USER
-      , EVENT_CATEGORY
-      , EVENT_ID
-      , EVENT_BINARY_DATA
-      , MAX_AVAILABLE
-      , CURR_USAGE
-      , MIN_USAGE
-      , MAX_USAGE
-      , INFO_UNIT_ID
-      , SYS_LOG_TAG
-      , EVENT_LOG_TYPE
-      , GENERIC_FILE_NAME
-      , SYSTEM_ID
+      ID
+    , CUSTOMER_ID
+    , RECEIVED_AT
+    , DEVICE_REPORTED_TIME
+    , FACILITY
+    , PRIORITY
+    , FROM_HOST
+    , MESSAGE
+    , NT_SEVERITY
+    , IMPORTANCE
+    , EVENT_SOURCE
+    , EVENT_USER
+    , EVENT_CATEGORY
+    , EVENT_ID
+    , EVENT_BINARY_DATA
+    , MAX_AVAILABLE
+    , CURR_USAGE
+    , MIN_USAGE
+    , MAX_USAGE
+    , INFO_UNIT_ID
+    , SYS_LOG_TAG
+    , EVENT_LOG_TYPE
+    , GENERIC_FILE_NAME
+    , SYSTEM_ID
     FROM
       CQA7WTJG.SYSTEM_EVENTS_PK
     WHERE
@@ -84,10 +84,9 @@
       CQA7WTJG.SYSTEM_EVENTS T1 
   </select>
   <insert id="insert001" parameterType="SystemEventsDTO">
-    INSERT
-      INTO
-      CQA7WTJG.SYSTEM_EVENTS
-      ( CUSTOMER_ID
+    INSERT INTO
+      CQA7WTJG.SYSTEM_EVENTS (
+        CUSTOMER_ID
       , RECEIVED_AT
       , DEVICE_REPORTED_TIME
       , FACILITY
@@ -113,7 +112,7 @@
       , CREATE_USER
       , CREATE_TIME
       )
-    VALUES(
+    VALUES (
         #{customerId} 
       , to_date(#{receivedAt}, 'YYYY-MM-DD HH24:MI:SS') 
       , to_date(#{deviceReportedTime}, 'YYYY-MM-DD HH24:MI:SS') 
@@ -145,38 +144,38 @@
     UPDATE
       CQA7WTJG.SYSTEM_EVENTS
     SET
-        UPDATE_USER = #{updateUser}
-      , UPDATE_TIME = CURRENT_TIMESTAMP
+      UPDATE_USER = #{updateUser}
+    , UPDATE_TIME = CURRENT_TIMESTAMP
   </update>
   <update id="update002" parameterType="SystemEventsDTO">
     UPDATE
       CQA7WTJG.SYSTEM_EVENTS
     SET
-        CUSTOMER_ID = #{customerId}                     
-      , RECEIVED_AT = to_date(#{receivedAt}, 'YYYY-MM-DD HH24:MI:SS')                     
-      , DEVICE_REPORTED_TIME = to_date(#{deviceReportedTime}, 'YYYY-MM-DD HH24:MI:SS')
-      , FACILITY = #{facility}                        
-      , PRIORITY = #{priority}                        
-      , FROM_HOST = #{fromHost}                      
-      , MESSAGE = #{message}                      
-      , NT_SEVERITY = #{ntSeverity}                    
-      , IMPORTANCE = #{importance}                     
-      , EVENT_SOURCE = #{eventSource}                    
-      , EVENT_USER = #{eventUser}                      
-      , EVENT_CATEGORY = #{eventCategory}                  
-      , EVENT_ID = #{eventId}                        
-      , EVENT_BINARY_DATA = #{eventBinaryData}                 
-      , MAX_AVAILABLE = #{maxAvailable}                   
-      , CURR_USAGE = #{currUsage}                      
-      , MIN_USAGE = #{minUsage}                       
-      , MAX_USAGE = #{maxUsage}                       
-      , INFO_UNIT_ID =  #{infoUnitId}                   
-      , SYS_LOG_TAG = #{sysLogTag}                     
-      , EVENT_LOG_TYPE = #{eventLogType}                  
-      , GENERIC_FILE_NAME = #{genericFileName}               
-      , SYSTEM_ID = #{systemId}  
-      , UPDATE_USER = #{updateUser}
-      , UPDATE_TIME = CURRENT_TIMESTAMP
+      CUSTOMER_ID = #{customerId}                     
+    , RECEIVED_AT = to_date(#{receivedAt}, 'YYYY-MM-DD HH24:MI:SS')                     
+    , DEVICE_REPORTED_TIME = to_date(#{deviceReportedTime}, 'YYYY-MM-DD HH24:MI:SS')
+    , FACILITY = #{facility}                        
+    , PRIORITY = #{priority}                        
+    , FROM_HOST = #{fromHost}                      
+    , MESSAGE = #{message}                      
+    , NT_SEVERITY = #{ntSeverity}                    
+    , IMPORTANCE = #{importance}                     
+    , EVENT_SOURCE = #{eventSource}                    
+    , EVENT_USER = #{eventUser}                      
+    , EVENT_CATEGORY = #{eventCategory}                  
+    , EVENT_ID = #{eventId}                        
+    , EVENT_BINARY_DATA = #{eventBinaryData}                 
+    , MAX_AVAILABLE = #{maxAvailable}                   
+    , CURR_USAGE = #{currUsage}                      
+    , MIN_USAGE = #{minUsage}                       
+    , MAX_USAGE = #{maxUsage}                       
+    , INFO_UNIT_ID =  #{infoUnitId}                   
+    , SYS_LOG_TAG = #{sysLogTag}                     
+    , EVENT_LOG_TYPE = #{eventLogType}                  
+    , GENERIC_FILE_NAME = #{genericFileName}               
+    , SYSTEM_ID = #{systemId}  
+    , UPDATE_USER = #{updateUser}
+    , UPDATE_TIME = CURRENT_TIMESTAMP
     WHERE
       1 = 1
       AND ID = #{id}
@@ -187,8 +186,7 @@
       CQA7WTJG.SYSTEM_EVENTS
   </delete>
   <delete id="delete002" parameterType="map">
-    DELETE
-    FROM
+    DELETE FROM
       CQA7WTJG.SYSTEM_EVENTS
     WHERE
       1 = 1
