@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration>
 <configuration>
+  <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+  <springProperty name="appname" source= "spring.application.name"/>
   <property name="LOGS_PATH" value="./log" />
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <layout class="ch.qos.logback.classic.PatternLayout">
@@ -8,7 +10,7 @@
     </layout>
   </appender>
   <appender name="DAILY_ROLLING_FILE_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>${LOGS_PATH}/bdkqpr0x.log</file>
+    <file>${LOGS_PATH}/${appname}.log</file>
     <encoder>
       <pattern>[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level %logger{35} - %msg%n</pattern>
     </encoder>

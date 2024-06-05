@@ -25,7 +25,7 @@
           (SELECT
               *
             FROM
-              CQA7WTJG.BDKQPR01
+              DEV.BDKQPR01
           ) T1
         WHERE
           ROWNUM <![CDATA[<=]]> #{_skiprows} + #{_pagesize}
@@ -49,7 +49,7 @@
     , PERSONAL_EMAIL
     , COMPANY_WEB
     FROM
-      CQA7WTJG.BDKQPR01
+      DEV.BDKQPR01
     WHERE
       1 = 1
       AND ID = #{id}
@@ -59,11 +59,11 @@
       /*+ INDEX_FFS(T1 BDKQPR01_PK) */
       count(*) COUNT
     FROM
-      CQA7WTJG.BDKQPR01 T1 
+      DEV.BDKQPR01 T1 
   </select>
   <insert id="insert001" parameterType="Bdkqpr01DTO">
     INSERT INTO
-      CQA7WTJG.BDKQPR01 (
+      DEV.BDKQPR01 (
         EMPLOYEE_FIRST_NAME
       , EMPLOYEE_LAST_NAME
       , COMPANY_NAME
@@ -98,14 +98,14 @@
   </insert>
   <update id="update001" parameterType="Bdkqpr01DTO">
     UPDATE
-      CQA7WTJG.BDKQPR01
+      DEV.BDKQPR01
     SET
       UPDATE_USER = #{updateUser}
     , UPDATE_TIME = CURRENT_TIMESTAMP
   </update>
   <update id="update002" parameterType="Bdkqpr01DTO">
     UPDATE
-      CQA7WTJG.BDKQPR01
+      DEV.BDKQPR01
     SET
       EMPLOYEE_FIRST_NAME = #{employeeFirstName}
     , EMPLOYEE_LAST_NAME = #{employeeLastName}
@@ -128,11 +128,11 @@
   <delete id="delete001">
     TRUNCATE
     TABLE
-      CQA7WTJG.BDKQPR01
+      DEV.BDKQPR01
   </delete>
   <delete id="delete002" parameterType="map">
     DELETE FROM
-      CQA7WTJG.BDKQPR01
+      DEV.BDKQPR01
     WHERE
       1 = 1
       AND ID = #{id}

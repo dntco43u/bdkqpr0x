@@ -182,7 +182,7 @@ public class Bdkqpr01JobConfig {
 
   @Bean
   @StepScope
-  public MyBatisPagingItemReader<Bdkqpr01DTO> gvp6nx1aSelect001ReaderB01(
+                                                                                                                                              public MyBatisPagingItemReader<Bdkqpr01DTO> gvp6nx1aSelect001ReaderB01(
   @Value("#{jobParameters[chunkSize]}") Integer chunkSize) {
     return new MyBatisPagingItemReaderBuilder<Bdkqpr01DTO>()
     .sqlSessionFactory(sqlSessionFactoryGvp6nx1a)

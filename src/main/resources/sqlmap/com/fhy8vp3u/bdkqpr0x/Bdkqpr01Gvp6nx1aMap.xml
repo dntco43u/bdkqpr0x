@@ -17,7 +17,7 @@
     , PERSONAL_EMAIL
     , COMPANY_WEB
     FROM
-      bdkqpr0x.BDKQPR01
+      dev.BDKQPR01
     ORDER BY
       ID ASC
     LIMIT #{_skiprows}, #{_pagesize}
@@ -38,7 +38,7 @@
     , PERSONAL_EMAIL
     , COMPANY_WEB
     FROM
-      bdkqpr0x.BDKQPR01
+      dev.BDKQPR01
     WHERE
       1 = 1
       AND ID = #{id}
@@ -47,11 +47,11 @@
     SELECT
       count(*) COUNT
     FROM
-      bdkqpr0x.BDKQPR01 
+      dev.BDKQPR01 
   </select>
   <insert id="insert001" parameterType="Bdkqpr01DTO">
     INSERT INTO
-      bdkqpr0x.BDKQPR01 (
+      dev.BDKQPR01 (
         EMPLOYEE_FIRST_NAME
       , EMPLOYEE_LAST_NAME
       , COMPANY_NAME
@@ -86,14 +86,14 @@
   </insert>
   <update id="update001" parameterType="Bdkqpr01DTO">
     UPDATE
-      bdkqpr0x.BDKQPR01
+      dev.BDKQPR01
     SET
       UPDATE_USER = #{updateUser}
     , UPDATE_TIME = CURRENT_TIMESTAMP()
   </update>
   <update id="update002" parameterType="Bdkqpr01DTO">
     UPDATE
-      bdkqpr0x.BDKQPR01
+      dev.BDKQPR01
     SET
       EMPLOYEE_FIRST_NAME = #{employeeFirstName}    
     , EMPLOYEE_LAST_NAME = #{employeeLastName}
@@ -115,11 +115,11 @@
   </update>
   <delete id="delete001">
     TRUNCATE
-      bdkqpr0x.BDKQPR01
+      dev.BDKQPR01
   </delete>
   <delete id="delete002" parameterType="map">
     DELETE FROM
-      bdkqpr0x.BDKQPR01
+      dev.BDKQPR01
     WHERE
       1 = 1
       AND ID = #{id}
