@@ -31,34 +31,20 @@ import lombok.extern.slf4j.Slf4j;
 @ConfigurationProperties(prefix = "spring.datasource-gvp6nx1a")
 @Setter
 public class DataSourceConfigGvp6nx1a {
-  private final SSHTunnelConfig initializer; 
   private String driverClassName;
   private String jdbcUrl;
   private String username;
   private String password;
 
   @Bean(name = "dataSourceGvp6nx1a")
+  @ConfigurationProperties(prefix = "spring.datasource-gvp6nx1a")
   public DataSource dataSourceGvp6nx1a() {
     log.info("driverClassName={}, jdbcUrl={}, username={}, password={}", driverClassName, jdbcUrl, username, password);
-    Map<String, String> paramMap = new HashMap<>();
-    try {
-      paramMap = initializer.init();
-    } catch (Exception e) {
-      log.error("", e);
-    }
-    String targetUrl = jdbcUrl;
-    String forwardedUrl = jdbcUrl.replace(paramMap.get("tunnelRemotePort"), paramMap.get("forwardedPort"));    
-    log.info("forwarded {} -> {}", targetUrl, forwardedUrl);
     return DataSourceBuilder
-    .create()
-    .type(HikariDataSource.class)
-    .url(forwardedUrl)
-    .username(username)
-    .password(password)
-    .driverClassName(driverClassName)
-    .type(HikariDataSource.class)
-    .build();
-  }  
+      .create()
+      .type(HikariDataSource.class)
+      .build();
+  }
 
   @Bean(name = "sqlSessionFactoryGvp6nx1a")
   public SqlSessionFactory sqlSessionFactory(@Qualifier("dataSourceGvp6nx1a") DataSource dataSourceGvp6nx1a,
