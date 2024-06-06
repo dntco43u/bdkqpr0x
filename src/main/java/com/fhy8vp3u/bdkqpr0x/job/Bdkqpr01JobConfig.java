@@ -1,5 +1,6 @@
 package com.fhy8vp3u.bdkqpr0x.job;
 
+import com.fhy8vp3u.bdkqpr0x.common.BdDelimitedLineTokenizer;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.batch.MyBatisBatchItemWriter;
@@ -19,8 +20,10 @@ import org.springframework.batch.item.file.FlatFileItemWriter;
 import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
 import org.springframework.batch.item.file.builder.FlatFileItemWriterBuilder;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
+import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.BeanWrapperFieldExtractor;
 import org.springframework.batch.item.file.transform.DelimitedLineAggregator;
+import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -205,18 +208,20 @@ public class Bdkqpr01JobConfig {
   public FlatFileItemReader<Us500DTO> fileReaderBD01() {
     return new FlatFileItemReaderBuilder<Us500DTO>()
     .name("fileReaderBD01")
+    .resource(new FileSystemResource(csvFile))
     .encoding(csvFileEncoding)
     .linesToSkip(0)
-    .resource(new FileSystemResource(csvFile))
-    .delimited()
-    .delimiter(csvFileDelimeter)
-    .names(csvFileHeader)
-    .fieldSetMapper(new BeanWrapperFieldSetMapper<Us500DTO>() {{
+    .lineMapper(new DefaultLineMapper<Us500DTO>() {{
+      setLineTokenizer(new BdDelimitedLineTokenizer(csvFileDelimeter) {{
+        setNames(csvFileHeader);
+      }});
+      setFieldSetMapper(new BeanWrapperFieldSetMapper<Us500DTO>() {{
         setTargetType(Us500DTO.class);
+      }});
     }})
     .build();
   }
-  
+
   @Bean
   @StepScope
   public FlatFileItemWriter<Us500DTO> fileWriterBD01() {

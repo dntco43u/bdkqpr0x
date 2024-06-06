@@ -1,5 +1,8 @@
 package com.fhy8vp3u.bdkqpr0x.job;
 
+import com.fhy8vp3u.bdkqpr0x.common.BdDelimitedLineTokenizer;
+import com.fhy8vp3u.bdkqpr0x.domain.MusicTagDTO;
+import com.fhy8vp3u.bdkqpr0x.domain.Us500DTO;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.batch.MyBatisBatchItemWriter;
@@ -19,8 +22,10 @@ import org.springframework.batch.item.file.FlatFileItemWriter;
 import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
 import org.springframework.batch.item.file.builder.FlatFileItemWriterBuilder;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
+import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.BeanWrapperFieldExtractor;
 import org.springframework.batch.item.file.transform.DelimitedLineAggregator;
+import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -70,15 +75,16 @@ public class Bdkqpr04JobConfig {
     .get("bd04")
     .listener(jobListener)
     .incrementer(new RunIdIncrementer())
-    .start(initStepBD04(stepListener, null, null))    
+    .start(initStepBD04(stepListener, null, null))
+    .next(deleteCqa7wtjgStepBD04(stepListener))
     //.next(gvp6nx1aToCqa7wtjgStepBD04(stepListener, null)) // XXX: DB -> DB processing without file processing, current state is File -> DB -> File 
     .next(gvp6nx1aToFileStepBD04(stepListener, null))
     .next(fileToCqa7wtjgStepBD04(stepListener, null))
-    .next(deleteGvp6nx1aStepBD04(stepListener))
+    //.next(deleteGvp6nx1aStepBD04(stepListener))
     .next(closeStepBD04(stepListener))
     .build();
   }
-  
+
   @Bean
   @JobScope
   public Step initStepBD04(Bdkqpr0xStepListener stepListener, @Value("#{jobParameters[requestDate]}") String requestDate,
@@ -90,6 +96,19 @@ public class Bdkqpr04JobConfig {
       log.info("requestDate={}, chunkSize={}", requestDate, chunkSize);
       log.info("csvFile={}, csvFileEncoding={}, csvFileHeader={}", csvFile, csvFileEncoding, csvFileHeader);
       log.info("csvFileDelimeter={}, user={}", csvFileDelimeter, user);      
+      return RepeatStatus.FINISHED;
+    })
+    .build();
+  }
+
+  @Bean
+  @JobScope
+  public Step deleteCqa7wtjgStepBD04(Bdkqpr0xStepListener stepListener) {
+    return stepBuilderFactory
+    .get("deleteCqa7wtjgStepBD04")
+    .listener(stepListener)
+    .tasklet((contribution, chunkContext) -> {
+      this.sqlSessionCqa7wtjg.delete("com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr04MapperCqa7wtjg.delete001");
       return RepeatStatus.FINISHED;
     })
     .build();
@@ -203,20 +222,22 @@ public class Bdkqpr04JobConfig {
   @Bean
   @StepScope
   public FlatFileItemReader<SystemEventsDTO> fileReaderBD04() {    
-    return new FlatFileItemReaderBuilder<SystemEventsDTO>()    
+    return new FlatFileItemReaderBuilder<SystemEventsDTO>()
     .name("fileReaderBD04")
+    .resource(new FileSystemResource(csvFile))
     .encoding(csvFileEncoding)
     .linesToSkip(0)
-    .resource(new FileSystemResource(csvFile))
-    .delimited()
-    .delimiter(csvFileDelimeter)
-    .names(csvFileHeader)
-    .fieldSetMapper(new BeanWrapperFieldSetMapper<SystemEventsDTO>() {{
+    .lineMapper(new DefaultLineMapper<SystemEventsDTO>() {{
+      setLineTokenizer(new BdDelimitedLineTokenizer(csvFileDelimeter) {{
+        setNames(csvFileHeader);
+      }});
+      setFieldSetMapper(new BeanWrapperFieldSetMapper<SystemEventsDTO>() {{
         setTargetType(SystemEventsDTO.class);
+      }});
     }})
     .build();
   }
-  
+
   @Bean
   @StepScope
   public FlatFileItemWriter<SystemEventsDTO> fileWriterBD04() {

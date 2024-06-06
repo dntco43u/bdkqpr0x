@@ -2,57 +2,50 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr01MapperGvp6nx1a">
   <select id="select001" parameterType="map" resultType="Us500DTO">
-    SELECT
-      ID
-    , EMPLOYEE_FIRST_NAME
-    , EMPLOYEE_LAST_NAME
-    , COMPANY_NAME
-    , COMPANY_ADDRESS
-    , COMPANY_CITY
-    , COMPANY_COUNTY
-    , COMPANY_STATE
-    , COMPANY_ZIP
-    , COMPANY_PHONE1
-    , PERSONAL_PHONE2
-    , PERSONAL_EMAIL
-    , COMPANY_WEB
-    FROM
-      dev.US_500
-    ORDER BY
-      ID ASC
-    LIMIT #{_skiprows}, #{_pagesize}
+    SELECT ID
+      , EMPLOYEE_FIRST_NAME
+      , EMPLOYEE_LAST_NAME
+      , COMPANY_NAME
+      , COMPANY_ADDRESS
+      , COMPANY_CITY
+      , COMPANY_COUNTY
+      , COMPANY_STATE
+      , COMPANY_ZIP
+      , COMPANY_PHONE1
+      , PERSONAL_PHONE2
+      , PERSONAL_EMAIL
+      , COMPANY_WEB
+    FROM dev.US_500
+    ORDER BY ID ASC LIMIT #{_skiprows}
+      , #{_pagesize}
   </select>
+
   <select id="select002" parameterType="map" resultType="Us500DTO">
-    SELECT
-      ID
-    , EMPLOYEE_FIRST_NAME
-    , EMPLOYEE_LAST_NAME
-    , COMPANY_NAME
-    , COMPANY_ADDRESS
-    , COMPANY_CITY
-    , COMPANY_COUNTY
-    , COMPANY_STATE
-    , COMPANY_ZIP
-    , COMPANY_PHONE1
-    , PERSONAL_PHONE2
-    , PERSONAL_EMAIL
-    , COMPANY_WEB
-    FROM
-      dev.US_500
-    WHERE
-      1 = 1
-      AND ID = #{id}
+    SELECT ID
+      , EMPLOYEE_FIRST_NAME
+      , EMPLOYEE_LAST_NAME
+      , COMPANY_NAME
+      , COMPANY_ADDRESS
+      , COMPANY_CITY
+      , COMPANY_COUNTY
+      , COMPANY_STATE
+      , COMPANY_ZIP
+      , COMPANY_PHONE1
+      , PERSONAL_PHONE2
+      , PERSONAL_EMAIL
+      , COMPANY_WEB
+    FROM dev.US_500
+    WHERE ID = #{id}
   </select>
+
   <select id="select003" resultType="int">
-    SELECT
-      count(*) COUNT
-    FROM
-      dev.US_500
+    SELECT count(*) COUNT
+    FROM dev.US_500
   </select>
+
   <insert id="insert001" parameterType="Us500DTO">
-    INSERT INTO
-      dev.US_500 (
-        EMPLOYEE_FIRST_NAME
+    INSERT INTO dev.US_500 (
+      EMPLOYEE_FIRST_NAME
       , EMPLOYEE_LAST_NAME
       , COMPANY_NAME
       , COMPANY_ADDRESS
@@ -68,7 +61,7 @@
       , CREATE_TIME
       )
     VALUES (
-        #{employeeFirstName}
+      #{employeeFirstName}
       , #{employeeLastName}
       , #{companyName}
       , #{companyAddress}
@@ -84,44 +77,39 @@
       , CURRENT_TIMESTAMP()
       )
   </insert>
+
   <update id="update001" parameterType="Us500DTO">
-    UPDATE
-      dev.US_500
-    SET
-      UPDATE_USER = #{updateUser}
-    , UPDATE_TIME = CURRENT_TIMESTAMP()
+    UPDATE dev.US_500
+    SET UPDATE_USER = #{updateUser}
+      , UPDATE_TIME = CURRENT_TIMESTAMP()
   </update>
+
   <update id="update002" parameterType="Us500DTO">
-    UPDATE
-      dev.US_500
-    SET
-      EMPLOYEE_FIRST_NAME = #{employeeFirstName}
-    , EMPLOYEE_LAST_NAME = #{employeeLastName}
-    , COMPANY_NAME = #{companyName}
-    , COMPANY_ADDRESS = #{companyAddress}
-    , COMPANY_CITY = #{companyCity}
-    , COMPANY_COUNTY = #{companyCounty}
-    , COMPANY_STATE = #{companyState}
-    , COMPANY_ZIP = #{companyZip}
-    , COMPANY_PHONE1 = #{companyPhone1}
-    , PERSONAL_PHONE2 = #{personalPhone2}
-    , PERSONAL_EMAIL = #{personalEmail}
-    , COMPANY_WEB = #{companyWeb}
-    , UPDATE_USER = #{updateUser}
-    , UPDATE_TIME = CURRENT_TIMESTAMP()
-    WHERE
-      1 = 1
-      AND ID = #{id}
+    UPDATE dev.US_500
+    SET EMPLOYEE_FIRST_NAME = #{employeeFirstName}
+      , EMPLOYEE_LAST_NAME = #{employeeLastName}
+      , COMPANY_NAME = #{companyName}
+      , COMPANY_ADDRESS = #{companyAddress}
+      , COMPANY_CITY = #{companyCity}
+      , COMPANY_COUNTY = #{companyCounty}
+      , COMPANY_STATE = #{companyState}
+      , COMPANY_ZIP = #{companyZip}
+      , COMPANY_PHONE1 = #{companyPhone1}
+      , PERSONAL_PHONE2 = #{personalPhone2}
+      , PERSONAL_EMAIL = #{personalEmail}
+      , COMPANY_WEB = #{companyWeb}
+      , UPDATE_USER = #{updateUser}
+      , UPDATE_TIME = CURRENT_TIMESTAMP()
+    WHERE ID = #{id}
   </update>
+
   <delete id="delete001">
-    TRUNCATE
-      dev.US_500
+    TRUNCATE dev.US_500
   </delete>
+
   <delete id="delete002" parameterType="map">
-    DELETE FROM
-      dev.US_500
-    WHERE
-      1 = 1
-      AND ID = #{id}
+    DELETE
+    FROM dev.US_500
+    WHERE ID = #{id}
   </delete>
 </mapper>
