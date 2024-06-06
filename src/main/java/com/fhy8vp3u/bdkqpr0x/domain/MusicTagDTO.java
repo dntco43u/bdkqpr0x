@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Bdkqpr03DTO {
+public class MusicTagDTO {
   private String id;
   private String disc;
   private String totaldiscs;

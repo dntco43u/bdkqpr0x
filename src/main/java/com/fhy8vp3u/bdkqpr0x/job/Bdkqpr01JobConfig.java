@@ -30,7 +30,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
 
-import com.fhy8vp3u.bdkqpr0x.domain.Bdkqpr01DTO;
+import com.fhy8vp3u.bdkqpr0x.domain.Us500DTO;
 import com.fhy8vp3u.bdkqpr0x.listener.Bdkqpr0xJobListener;
 import com.fhy8vp3u.bdkqpr0x.listener.Bdkqpr0xStepListener;
 
@@ -39,7 +39,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Configuration
-@ConfigurationProperties(prefix = "fhy8vp3u.job.b01")
+@ConfigurationProperties(prefix = "fhy8vp3u.job.bd01")
 @Setter
 public class Bdkqpr01JobConfig {
   @Autowired
@@ -65,27 +65,27 @@ public class Bdkqpr01JobConfig {
   private String user = "bdkqpr0x";
 
   @Bean
-  public Job b01(Bdkqpr0xJobListener jobListener, Bdkqpr0xStepListener stepListener) throws Exception {
+  public Job bd01(Bdkqpr0xJobListener jobListener, Bdkqpr0xStepListener stepListener) throws Exception {
     return jobBuilderFactory
-    .get("b01")
+    .get("bd01")
     .listener(jobListener)
     .incrementer(new RunIdIncrementer())
-    .start(initStepB01(stepListener, null, null))    
-    .next(deleteCqa7wtjgStepB01(stepListener))
-    .next(gvp6nx1aToCqa7wtjgStepB01(stepListener, null))
-    .next(deleteCqa7wtjgStepB01(stepListener))
-    .next(gvp6nx1aToFileStepB01(stepListener, null))
-    .next(fileToCqa7wtjgStepB01(stepListener, null))
-    .next(closeStepB01(stepListener))
+    .start(initStepBD01(stepListener, null, null))
+    .next(deleteCqa7wtjgStepBD01(stepListener))
+    .next(gvp6nx1aToCqa7wtjgStepBD01(stepListener, null))
+    .next(deleteCqa7wtjgStepBD01(stepListener))
+    .next(gvp6nx1aToFileStepBD01(stepListener, null))
+    .next(fileToCqa7wtjgStepBD01(stepListener, null))
+    .next(closeStepBD01(stepListener))
     .build();
   }
   
   @Bean
   @JobScope
-  public Step initStepB01(Bdkqpr0xStepListener stepListener, @Value("#{jobParameters[requestDate]}") String requestDate,
+  public Step initStepBD01(Bdkqpr0xStepListener stepListener, @Value("#{jobParameters[requestDate]}") String requestDate,
   @Value("#{jobParameters[chunkSize]}") Integer chunkSize) {
     return stepBuilderFactory
-    .get("initStepB01")
+    .get("initStepBD01")
     .listener(stepListener)
     .tasklet((contribution, chunkContext) -> {
       log.info("requestDate={}, chunkSize={}", requestDate, chunkSize);
@@ -98,9 +98,9 @@ public class Bdkqpr01JobConfig {
   
   @Bean
   @JobScope
-  public Step deleteCqa7wtjgStepB01(Bdkqpr0xStepListener stepListener) {
+  public Step deleteCqa7wtjgStepBD01(Bdkqpr0xStepListener stepListener) {
     return stepBuilderFactory
-    .get("deleteCqa7wtjgStepB01")
+    .get("deleteCqa7wtjgStepBD01")
     .listener(stepListener)
     .tasklet((contribution, chunkContext) -> {
       this.sqlSessionCqa7wtjg.delete("com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr01MapperCqa7wtjg.delete001");
@@ -111,51 +111,51 @@ public class Bdkqpr01JobConfig {
   
   @Bean
   @JobScope
-  public Step gvp6nx1aToCqa7wtjgStepB01(Bdkqpr0xStepListener stepListener,
+  public Step gvp6nx1aToCqa7wtjgStepBD01(Bdkqpr0xStepListener stepListener,
   @Value("#{jobParameters[chunkSize]}") Integer chunkSize) {
     return stepBuilderFactory
-    .get("gvp6nx1aToCqa7wtjgStepB01")
+    .get("gvp6nx1aToCqa7wtjgStepBD01")
     .listener(stepListener)
-    .<Bdkqpr01DTO, Bdkqpr01DTO>chunk(chunkSize)
-    .reader(gvp6nx1aSelect001ReaderB01(null))
-    .processor(new ItemProcessorB01())
-    .writer(cqa7wtjgInsert001WriterB01())
+    .<Us500DTO, Us500DTO>chunk(chunkSize)
+    .reader(gvp6nx1aSelect001ReaderBD01(null))
+    .processor(new ItemProcessorBD01())
+    .writer(cqa7wtjgInsert001WriterBD01())
     .build();
   }
 
   @Bean
   @JobScope
-  public Step gvp6nx1aToFileStepB01(Bdkqpr0xStepListener stepListener,
+  public Step gvp6nx1aToFileStepBD01(Bdkqpr0xStepListener stepListener,
   @Value("#{jobParameters[chunkSize]}") Integer chunkSize) {
     return stepBuilderFactory
-    .get("gvp6nx1aToFileStepB01")
+    .get("gvp6nx1aToFileStepBD01")
     .listener(stepListener)
-    .<Bdkqpr01DTO, Bdkqpr01DTO>chunk(chunkSize)
-    .reader(gvp6nx1aSelect001ReaderB01(null))
-    .processor(new ItemProcessorB01())
-    .writer(fileWriterB01())
+    .<Us500DTO, Us500DTO>chunk(chunkSize)
+    .reader(gvp6nx1aSelect001ReaderBD01(null))
+    .processor(new ItemProcessorBD01())
+    .writer(fileWriterBD01())
     .build();
   }
   
   @Bean
   @JobScope
-  public Step fileToCqa7wtjgStepB01(Bdkqpr0xStepListener stepListener,
+  public Step fileToCqa7wtjgStepBD01(Bdkqpr0xStepListener stepListener,
   @Value("#{jobParameters[chunkSize]}") Integer chunkSize) {
     return stepBuilderFactory
-    .get("fileToCqa7wtjgStepB01")
+    .get("fileToCqa7wtjgStepBD01")
     .listener(stepListener)
-    .<Bdkqpr01DTO, Bdkqpr01DTO>chunk(chunkSize)
-    .reader(fileReaderB01())
-    .processor(new ItemProcessorB01())
-    .writer(cqa7wtjgInsert001WriterB01())
+    .<Us500DTO, Us500DTO>chunk(chunkSize)
+    .reader(fileReaderBD01())
+    .processor(new ItemProcessorBD01())
+    .writer(cqa7wtjgInsert001WriterBD01())
     .build();
   }
   
   @Bean
   @JobScope
-  public Step closeStepB01(Bdkqpr0xStepListener stepListener) {
+  public Step closeStepBD01(Bdkqpr0xStepListener stepListener) {
     return stepBuilderFactory
-    .get("closeStepB01")
+    .get("closeStepBD01")
     .listener(stepListener)
     .tasklet((contribution, chunkContext) -> {
       Integer count = this.sqlSessionCqa7wtjg.selectOne("com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr01MapperCqa7wtjg.select003");
@@ -166,9 +166,9 @@ public class Bdkqpr01JobConfig {
   }
 
   @StepScope
-  public class ItemProcessorB01 implements ItemProcessor<Bdkqpr01DTO, Bdkqpr01DTO> {
+  public class ItemProcessorBD01 implements ItemProcessor<Us500DTO, Us500DTO> {
     @Override
-    public Bdkqpr01DTO process(Bdkqpr01DTO item) {
+    public Us500DTO process(Us500DTO item) {
       log.debug(
       "employeeFirstName={}, employeeLastName={}, companyName={}, companyAddress={}, companyCity={}, companyCounty={}, companyState={}, companyZip={}, companyPhone1={}, personalPhone2={}, personalEmail={}, companyWeb={}",
       item.getEmployeeFirstName(), item.getEmployeeLastName(), item.getCompanyName(), item.getCompanyAddress(),
@@ -182,9 +182,9 @@ public class Bdkqpr01JobConfig {
 
   @Bean
   @StepScope
-                                                                                                                                              public MyBatisPagingItemReader<Bdkqpr01DTO> gvp6nx1aSelect001ReaderB01(
+                                                                                                                                              public MyBatisPagingItemReader<Us500DTO> gvp6nx1aSelect001ReaderBD01(
   @Value("#{jobParameters[chunkSize]}") Integer chunkSize) {
-    return new MyBatisPagingItemReaderBuilder<Bdkqpr01DTO>()
+    return new MyBatisPagingItemReaderBuilder<Us500DTO>()
     .sqlSessionFactory(sqlSessionFactoryGvp6nx1a)
     .pageSize(chunkSize)
     .queryId("com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr01MapperGvp6nx1a.select001")
@@ -193,8 +193,8 @@ public class Bdkqpr01JobConfig {
   
   @Bean
   @StepScope
-  public MyBatisBatchItemWriter<Bdkqpr01DTO> cqa7wtjgInsert001WriterB01() {
-    return new MyBatisBatchItemWriterBuilder<Bdkqpr01DTO>()
+  public MyBatisBatchItemWriter<Us500DTO> cqa7wtjgInsert001WriterBD01() {
+    return new MyBatisBatchItemWriterBuilder<Us500DTO>()
     .sqlSessionFactory(sqlSessionFactoryCqa7wtjg)
     .statementId("com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr01MapperCqa7wtjg.insert001")
     .build();
@@ -202,32 +202,32 @@ public class Bdkqpr01JobConfig {
   
   @Bean
   @StepScope
-  public FlatFileItemReader<Bdkqpr01DTO> fileReaderB01() {    
-    return new FlatFileItemReaderBuilder<Bdkqpr01DTO>()    
-    .name("fileReaderB01")
+  public FlatFileItemReader<Us500DTO> fileReaderBD01() {
+    return new FlatFileItemReaderBuilder<Us500DTO>()
+    .name("fileReaderBD01")
     .encoding(csvFileEncoding)
     .linesToSkip(0)
     .resource(new FileSystemResource(csvFile))
     .delimited()
     .delimiter(csvFileDelimeter)
     .names(csvFileHeader)
-    .fieldSetMapper(new BeanWrapperFieldSetMapper<Bdkqpr01DTO>() {{
-        setTargetType(Bdkqpr01DTO.class);
+    .fieldSetMapper(new BeanWrapperFieldSetMapper<Us500DTO>() {{
+        setTargetType(Us500DTO.class);
     }})
     .build();
   }
   
   @Bean
   @StepScope
-  public FlatFileItemWriter<Bdkqpr01DTO> fileWriterB01() {
-    return new FlatFileItemWriterBuilder<Bdkqpr01DTO>()
-    .name("fileWriterB01")
+  public FlatFileItemWriter<Us500DTO> fileWriterBD01() {
+    return new FlatFileItemWriterBuilder<Us500DTO>()
+    .name("fileWriterBD01")
     .encoding(csvFileEncoding)
     .resource(new FileSystemResource(csvFile))
     .append(false)
-    .lineAggregator(new DelimitedLineAggregator<Bdkqpr01DTO>() {{
+    .lineAggregator(new DelimitedLineAggregator<Us500DTO>() {{
         setDelimiter(csvFileDelimeter);
-        setFieldExtractor(new BeanWrapperFieldExtractor<Bdkqpr01DTO>() {{
+        setFieldExtractor(new BeanWrapperFieldExtractor<Us500DTO>() {{
             setNames(csvFileHeader);
           }
         });

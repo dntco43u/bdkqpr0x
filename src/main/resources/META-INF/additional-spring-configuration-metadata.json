@@ -1,63 +1,63 @@
 {"properties": [
   {
-    "name": "fhy8vp3u.job.b01.csv_file",
+    "name": "fhy8vp3u.job.bd01.csv_file",
     "type": "java.lang.String",
-    "description": "A description for 'fhy8vp3u.job.b01.csv_file'"
+    "description": "A description for 'fhy8vp3u.job.bd01.csv_file'"
   },
   {
-    "name": "fhy8vp3u.job.b01.csv_file_encoding",
+    "name": "fhy8vp3u.job.bd01.csv_file_encoding",
     "type": "java.lang.String",
-    "description": "A description for 'fhy8vp3u.job.b01.csv_file_encoding'"
+    "description": "A description for 'fhy8vp3u.job.bd01.csv_file_encoding'"
   },
   {
-    "name": "fhy8vp3u.job.b01.csv_file_header",
+    "name": "fhy8vp3u.job.bd01.csv_file_header",
     "type": "java.lang.String",
-    "description": "A description for 'fhy8vp3u.job.b01.csv_file_header'"
+    "description": "A description for 'fhy8vp3u.job.bd01.csv_file_header'"
   },
   {
-    "name": "fhy8vp3u.job.b02.csv_file",
+    "name": "fhy8vp3u.job.bd02.csv_file",
     "type": "java.lang.String",
-    "description": "A description for 'fhy8vp3u.job.b02.csv_file'"
+    "description": "A description for 'fhy8vp3u.job.bd02.csv_file'"
   },
   {
-    "name": "fhy8vp3u.job.b02.csv_file_encoding",
+    "name": "fhy8vp3u.job.bd02.csv_file_encoding",
     "type": "java.lang.String",
-    "description": "A description for 'fhy8vp3u.job.b02.csv_file_encoding'"
+    "description": "A description for 'fhy8vp3u.job.bd02.csv_file_encoding'"
   },
   {
-    "name": "fhy8vp3u.job.b02.csv_file_header",
+    "name": "fhy8vp3u.job.bd02.csv_file_header",
     "type": "java.lang.String",
-    "description": "A description for 'fhy8vp3u.job.b02.csv_file_header'"
+    "description": "A description for 'fhy8vp3u.job.bd02.csv_file_header'"
   },
   {
-    "name": "fhy8vp3u.job.b03.csv_file",
+    "name": "fhy8vp3u.job.bd03.csv_file",
     "type": "java.lang.String",
-    "description": "A description for 'fhy8vp3u.job.b03.csv_file'"
+    "description": "A description for 'fhy8vp3u.job.bd03.csv_file'"
   },
   {
-    "name": "fhy8vp3u.job.b03.csv_file_encoding",
+    "name": "fhy8vp3u.job.bd03.csv_file_encoding",
     "type": "java.lang.String",
-    "description": "A description for 'fhy8vp3u.job.b03.csv_file_encoding'"
+    "description": "A description for 'fhy8vp3u.job.bd03.csv_file_encoding'"
   },
   {
-    "name": "fhy8vp3u.job.b03.csv_file_header",
+    "name": "fhy8vp3u.job.bd03.csv_file_header",
     "type": "java.lang.String",
-    "description": "A description for 'fhy8vp3u.job.b03.csv_file_header'"
+    "description": "A description for 'fhy8vp3u.job.bd03.csv_file_header'"
   },
   {
-    "name": "fhy8vp3u.job.b04.csv_file",
+    "name": "fhy8vp3u.job.bd04.csv_file",
     "type": "java.lang.String",
-    "description": "A description for 'fhy8vp3u.job.b04.csv_file'"
+    "description": "A description for 'fhy8vp3u.job.bd04.csv_file'"
   },
   {
-    "name": "fhy8vp3u.job.b04.csv_file_encoding",
+    "name": "fhy8vp3u.job.bd04.csv_file_encoding",
     "type": "java.lang.String",
-    "description": "A description for 'fhy8vp3u.job.b04.csv_file_encoding'"
+    "description": "A description for 'fhy8vp3u.job.bd04.csv_file_encoding'"
   },
   {
-    "name": "fhy8vp3u.job.b04.csv_file_header",
+    "name": "fhy8vp3u.job.bd04.csv_file_header",
     "type": "java.lang.String",
-    "description": "A description for 'fhy8vp3u.job.b04.csv_file_header'"
+    "description": "A description for 'fhy8vp3u.job.bd04.csv_file_header'"
   },
   {
     "name": "fhy8vp3u.ssh.user",

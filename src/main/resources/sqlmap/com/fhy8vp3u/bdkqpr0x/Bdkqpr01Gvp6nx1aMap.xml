@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fhy8vp3u.bdkqpr0x.mapper.Bdkqpr01MapperGvp6nx1a">
-  <select id="select001" parameterType="map" resultType="Bdkqpr01DTO">
+  <select id="select001" parameterType="map" resultType="Us500DTO">
     SELECT
       ID
     , EMPLOYEE_FIRST_NAME
@@ -17,12 +17,12 @@
     , PERSONAL_EMAIL
     , COMPANY_WEB
     FROM
-      dev.BDKQPR01
+      dev.US_500
     ORDER BY
       ID ASC
     LIMIT #{_skiprows}, #{_pagesize}
   </select>
-  <select id="select002" parameterType="map" resultType="Bdkqpr01DTO">
+  <select id="select002" parameterType="map" resultType="Us500DTO">
     SELECT
       ID
     , EMPLOYEE_FIRST_NAME
@@ -38,7 +38,7 @@
     , PERSONAL_EMAIL
     , COMPANY_WEB
     FROM
-      dev.BDKQPR01
+      dev.US_500
     WHERE
       1 = 1
       AND ID = #{id}
@@ -47,11 +47,11 @@
     SELECT
       count(*) COUNT
     FROM
-      dev.BDKQPR01 
+      dev.US_500
   </select>
-  <insert id="insert001" parameterType="Bdkqpr01DTO">
+  <insert id="insert001" parameterType="Us500DTO">
     INSERT INTO
-      dev.BDKQPR01 (
+      dev.US_500 (
         EMPLOYEE_FIRST_NAME
       , EMPLOYEE_LAST_NAME
       , COMPANY_NAME
@@ -67,7 +67,7 @@
       , CREATE_USER
       , CREATE_TIME
       )
-    VALUES ( 
+    VALUES (
         #{employeeFirstName}
       , #{employeeLastName}
       , #{companyName}
@@ -84,18 +84,18 @@
       , CURRENT_TIMESTAMP()
       )
   </insert>
-  <update id="update001" parameterType="Bdkqpr01DTO">
+  <update id="update001" parameterType="Us500DTO">
     UPDATE
-      dev.BDKQPR01
+      dev.US_500
     SET
       UPDATE_USER = #{updateUser}
     , UPDATE_TIME = CURRENT_TIMESTAMP()
   </update>
-  <update id="update002" parameterType="Bdkqpr01DTO">
+  <update id="update002" parameterType="Us500DTO">
     UPDATE
-      dev.BDKQPR01
+      dev.US_500
     SET
-      EMPLOYEE_FIRST_NAME = #{employeeFirstName}    
+      EMPLOYEE_FIRST_NAME = #{employeeFirstName}
     , EMPLOYEE_LAST_NAME = #{employeeLastName}
     , COMPANY_NAME = #{companyName}
     , COMPANY_ADDRESS = #{companyAddress}
@@ -115,11 +115,11 @@
   </update>
   <delete id="delete001">
     TRUNCATE
-      dev.BDKQPR01
+      dev.US_500
   </delete>
   <delete id="delete002" parameterType="map">
     DELETE FROM
-      dev.BDKQPR01
+      dev.US_500
     WHERE
       1 = 1
       AND ID = #{id}

@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Bdkqpr01DTO {
+public class Us500DTO {
   private String id;
   private String employeeFirstName;
   private String employeeLastName;

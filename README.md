@@ -17,10 +17,10 @@ The batch job is divided into 4 parts and each role is as follows.
 
 |Jobs|Contents|Marks|
 |:---|:---|:---|
-|b01|Transfer us-500.csv format|MySQL to Oracle, MySQL to File to Oracle|
-|b02|Transfer us-500.csv format|Oracle to MySQL, Oracle to File to MySQL|
-|b03|Transfer music_metadata.csv format|CLOB, Oracle to Oracle, Oracle to File to Oracle|
-|b04|Transfer rsyslog Syslog.SystemEvents|600M+ Rows, MySQL to Oracle, MySQL to File to Oracle|
+|bd01|Transfer us-500.csv format|MySQL to Oracle, MySQL to File to Oracle|
+|bd02|Transfer us-500.csv format|Oracle to MySQL, Oracle to File to MySQL|
+|bd03|Transfer music_metadata.csv format|CLOB, Oracle to Oracle, Oracle to File to Oracle|
+|bd04|Transfer rsyslog Syslog.SystemEvents|600M+ Rows, MySQL to Oracle, MySQL to File to Oracle|
 
 * * *
 
@@ -101,10 +101,10 @@ fi
 The batch program is distributed along with the container of auzj6fml, which is in charge of the UI, and is called from the host's shell as needed.
 ```sh
 sudo cd /data/auzj6fml && sudo docker-compose rm -f -s && sudo docker-compose up -d && sudo docker exec -it auzj6fml date
-sudo docker exec -it auzj6fml java -jar /bdkqpr0x-0.0.1-SNAPSHOT.jar --job.name=b01 chunkSize=500 requestDate=$(date "+%Y-%m-%d")
-sudo docker exec -it auzj6fml java -jar /bdkqpr0x-0.0.1-SNAPSHOT.jar --job.name=b02 chunkSize=500 requestDate=$(date "+%Y-%m-%d")
-sudo docker exec -it auzj6fml java -jar /bdkqpr0x-0.0.1-SNAPSHOT.jar --job.name=b03 chunkSize=1000 requestDate=$(date "+%Y-%m-%d")
-sudo docker exec -it auzj6fml java -jar /bdkqpr0x-0.0.1-SNAPSHOT.jar --job.name=b04 chunkSize=10000 requestDate=$(date "+%Y-%m-%d")
+sudo docker exec -it auzj6fml java -jar /bdkqpr0x-0.0.1-SNAPSHOT.jar --job.name=bd01 chunkSize=500 requestDate=$(date "+%Y-%m-%d")
+sudo docker exec -it auzj6fml java -jar /bdkqpr0x-0.0.1-SNAPSHOT.jar --job.name=bd02 chunkSize=500 requestDate=$(date "+%Y-%m-%d")
+sudo docker exec -it auzj6fml java -jar /bdkqpr0x-0.0.1-SNAPSHOT.jar --job.name=bd03 chunkSize=1000 requestDate=$(date "+%Y-%m-%d")
+sudo docker exec -it auzj6fml java -jar /bdkqpr0x-0.0.1-SNAPSHOT.jar --job.name=bd04 chunkSize=10000 requestDate=$(date "+%Y-%m-%d")
 ```
 
 Called from cron to notify the execution result to telegram.
@@ -114,7 +114,7 @@ log_file=/tmp/bdkqpr0x.log
 log_file_1=/tmp/bdkqpr0x_telegram_1.log
 {
   systemctl stop rsyslog
-  docker exec -i auzj6fml java -jar /usr/share/java/bdkqpr0x.jar --job.name=b04 chunkSize=10000 requestDate=$(date "+%Y-%m-%d")
+  docker exec -i auzj6fml java -jar /usr/share/java/bdkqpr0x.jar --job.name=bd04 chunkSize=10000 requestDate=$(date "+%Y-%m-%d")
   systemctl start rsyslog
 } > $log_file
 {
