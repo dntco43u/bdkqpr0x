@@ -1,11 +1,26 @@
+#md
 HELP.md
-.gradle
+
+#build
 build/
-!gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### STS ###
+#class
+*.class
+
+#packages
+*.jar
+*.war
+*.ear
+
+#gradle
+!gradle/wrapper/gradle-wrapper.jar
+.gradle
+gradle-app.setting
+.gradletasknamecache
+
+#STS
 .apt_generated
 .classpath
 .factorypath
@@ -17,7 +32,7 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
-### IntelliJ IDEA ###
+#IntelliJ IDEA
 .idea
 *.iws
 *.iml
@@ -26,22 +41,25 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-### NetBeans ###
+#NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
+#VS Code
 .vscode/
 
-# ssh/db config
+#ssh/db config
 application-security.properties
 /config
 
-# .csv files
+#logs
+/log
+
+#data
 /data
 
-# logs
-/log
+#test
+**/src/test/**
