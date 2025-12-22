@@ -183,6 +183,7 @@ public class Bdkqpr01JobConfig {
     }
   }
 
+  
   @Bean
   @StepScope
                                                                                                                                               public MyBatisPagingItemReader<Us500DTO> gvp6nx1aSelect001ReaderBD01(
