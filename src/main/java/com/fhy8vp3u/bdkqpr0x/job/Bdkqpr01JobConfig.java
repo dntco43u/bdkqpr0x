@@ -182,10 +182,6 @@ public class Bdkqpr01JobConfig {
       return item;
     }
   }
-
-
-
-
   
   @Bean
   @StepScope
